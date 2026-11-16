@@ -50,6 +50,11 @@ const server = http.createServer((req, res) => {
   if (req.method === 'OPTIONS') { send(res, 204, {}); return; }
 
   if (req.method === 'GET' && u.pathname === '/health') { send(res, 200, { ok: true, service: 'growtogether-waitlist', count: records.length }); return; }
+  if (req.method === 'GET' && u.pathname === '/og-image.png') {
+    const buf = Buffer.from(require('./og-image-data.js'), 'base64');
+    res.writeHead(200, { 'Content-Type': 'image/png', 'Content-Length': buf.length, 'Cache-Control': 'public, max-age=86400' });
+    res.end(buf); return;
+  }
   if (req.method === 'GET' && u.pathname === '/api/count') { send(res, 200, { ok: true, count: records.length }); return; }
 
   if (req.method === 'GET' && u.pathname === '/api/export') {
