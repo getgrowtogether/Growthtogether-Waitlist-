@@ -1,0 +1,1 @@
+{"description":"GrowTogether waitlist backend — zero-dependency Node service","engines":{"node":">=18"},"main":"server.js","name":"growtogether-waitlist","private":true,"scripts":{"start":"node server.js"},"version":"1.0.0"}
