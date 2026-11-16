@@ -10,6 +10,10 @@
 <meta property="og:site_name" content="GrowTogether">
 <meta property="og:title" content="GrowTogether — Free Promotion for Websites, Apps &amp; Channels">
 <meta property="og:description" content="The global circle where creators and businesses promote each other for free. Discover others. Get discovered. No ads, no fees, no fake traffic.">
+<meta property="og:image" content="https://growtogether-waitlist.onrender.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://growtogether-waitlist.onrender.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GrowTogether — Free Promotion for Websites, Apps &amp; Channels">
 <meta name="twitter:description" content="Websites, apps, SaaS, Telegram bots, YouTube, Instagram, Facebook — promote anything, free, in one global circle.">
@@ -121,6 +125,24 @@
   .larrow{align-self:center;font-size:17px;font-weight:700}
   @media(max-width:480px){.stage{height:250px}.stage .core{width:108px;height:108px}.stage .ring{width:108px;height:108px;margin:-54px 0 0 -54px}}
   @media (prefers-reduced-motion: reduce){.stage .ring,.stage .chip{animation:none}}
+  /* project wall (hero) */
+  .wall{position:relative;background:var(--white);border:2px solid var(--black);border-radius:20px;padding:22px 0 20px;overflow:hidden}
+  .wall .top{display:flex;justify-content:space-between;align-items:center;padding:0 22px;margin-bottom:16px}
+  .wall .top b{font-size:14px;letter-spacing:.02em}
+  .wall .pill{border:1.5px solid var(--black);border-radius:999px;padding:4px 11px;font-size:12px;font-weight:600}
+  .mrow{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);margin-bottom:12px}
+  .mtrack{display:flex;width:max-content;animation:mscroll 34s linear infinite}
+  .mtrack.rev{animation:mscrollr 40s linear infinite}
+  .mrow:hover .mtrack{animation-play-state:paused}
+  @keyframes mscroll{to{transform:translateX(-50%)}}
+  @keyframes mscrollr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+  .mcard{display:flex;align-items:center;gap:10px;border:1.5px solid #000;border-radius:14px;padding:12px 16px;margin-right:12px;background:#fff;font-weight:650;font-size:14px;white-space:nowrap;box-shadow:0 5px 12px rgba(0,0,0,.07)}
+  .mcard svg{flex:none}
+  .mcard.you{background:#000;color:#fff;border-color:#000}
+  .mcard.you small{display:block;font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;opacity:.72}
+  .wallnote{padding:4px 22px 0;font-size:14.5px;color:var(--grey);text-align:center;margin:0}
+  .wallnote b{color:#000}
+  @media (prefers-reduced-motion: reduce){.mtrack,.mtrack.rev{animation:none}}
 
   /* sections */
   section{padding:86px 0}
@@ -224,30 +246,45 @@
       </div>
       <p class="fineprint">Takes less than a minute &middot; No card &middot; No fees, ever &middot; Your own invite link the moment you join</p>
     </div>
-    <div class="circlevis">
-      <div class="dotsbg"></div>
+    <div class="wall">
       <div class="top"><b>One circle. Every project.</b><span class="pill">FREE FOREVER</span></div>
-      <div class="stage">
-        <span class="ring r1"></span><span class="ring r2"></span>
-        <div class="core">
-          <svg viewBox="0 0 100 100" width="86" height="86" aria-hidden="true"><circle cx="50" cy="16" r="5" fill="#000"/><circle cx="71.9" cy="24" r="5.7" fill="#000"/><circle cx="83.5" cy="44.1" r="6.4" fill="#000"/><circle cx="79.4" cy="67" r="7" fill="#000"/><circle cx="61.6" cy="82" r="7.7" fill="#000"/><circle cx="38.4" cy="82" r="8.4" fill="#000"/><circle cx="20.6" cy="67" r="9" fill="#000"/><circle cx="16.5" cy="44.1" r="9.7" fill="#000"/><circle cx="28.1" cy="24" r="10.4" fill="#000"/><circle cx="50" cy="50" r="11" fill="#000"/></svg>
-        </div>
-        <span class="chip" style="--x:50%;--y:5%;--d:0s">Website</span>
-        <span class="chip" style="--x:84%;--y:15%;--d:.4s">App</span>
-        <span class="chip" style="--x:88%;--y:48%;--d:.8s">SaaS</span>
-        <span class="chip" style="--x:84%;--y:85%;--d:1.2s">YouTube</span>
-        <span class="chip" style="--x:50%;--y:96%;--d:1.6s">Telegram</span>
-        <span class="chip" style="--x:16%;--y:85%;--d:2s">Podcast</span>
-        <span class="chip" style="--x:12%;--y:48%;--d:2.4s">Discord</span>
-        <span class="chip" style="--x:16%;--y:15%;--d:2.8s">Newsletter</span>
-      </div>
-      <div class="loop">
-        <div class="lstep"><b>Discover 5</b><span>Projects</span></div>
-        <span class="larrow">&rarr;</span>
-        <div class="lstep"><b>Earn credits</b><span>For discovering</span></div>
-        <span class="larrow">&rarr;</span>
-        <div class="lstep"><b>Get discovered</b><span>By the circle</span></div>
-      </div>
+      <div class="mrow"><div class="mtrack">
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Website</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>SaaS</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Mobile app</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Telegram bot</span>
+        <span class="mcard you"><span>Your project here<small>Join the waitlist</small></span></span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>YouTube channel</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Newsletter</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Podcast show</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Website</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>SaaS</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Mobile app</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Telegram bot</span>
+        <span class="mcard you"><span>Your project here<small>Join the waitlist</small></span></span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>YouTube channel</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Newsletter</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Podcast show</span>
+      </div></div>
+      <div class="mrow"><div class="mtrack rev">
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Instagram page</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Facebook page</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Discord server</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Telegram channel</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Online store</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Blog</span>
+        <span class="mcard you"><span>This spot is waiting<small>It could be yours</small></span></span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Design portfolio</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Instagram page</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Facebook page</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Discord server</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Telegram channel</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/></svg>Online store</span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Blog</span>
+        <span class="mcard you"><span>This spot is waiting<small>It could be yours</small></span></span>
+        <span class="mcard"><svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true"><circle cx="50" cy="16" r="10" fill="#000"/><circle cx="84" cy="44" r="12" fill="#000"/><circle cx="62" cy="82" r="13" fill="#000"/><circle cx="21" cy="67" r="14" fill="#000"/><circle cx="50" cy="50" r="15" fill="#000"/></svg>Design portfolio</span>
+      </div></div>
+      <p class="wallnote">Every kind of project, one fair circle. <b>The next spot is yours.</b></p>
     </div>
   </div>
 </div>
