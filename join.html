@@ -66,9 +66,8 @@
   .donebox h2{font-size:36px;font-weight:750;letter-spacing:-.03em;line-height:1.08;animation:fadeup .5s ease .25s both}
   .donebox p{color:var(--grey);line-height:1.6;margin-top:11px;font-size:15.5px;animation:fadeup .5s ease .38s both}
   @keyframes fadeup{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
-  .qchip{display:none;margin:18px auto 0;align-items:center;gap:10px;background:#000;color:#fff;border-radius:999px;padding:9px 18px 9px 16px;font-size:13px;font-weight:600;letter-spacing:.04em;box-shadow:0 12px 26px rgba(0,0,0,.22);animation:fadeup .5s ease .5s both}
-  .qchip.on{display:inline-flex}
-  .qchip b{font-size:17px;font-weight:750;letter-spacing:0}
+  .copybtn{margin-top:12px;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55);border-radius:999px;padding:9px 22px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+  .copybtn:hover{border-color:#fff;background:rgba(255,255,255,.1)}
   .invitebox{margin-top:22px;background:var(--black);color:#fff;border-radius:18px;padding:24px;text-align:left;box-shadow:0 22px 44px rgba(0,0,0,.25);animation:fadeup .55s ease .55s both}
   .invitebox .big{font-weight:650;font-size:16.5px;margin-bottom:6px}
   .invitebox p{font-size:13.5px;color:#cfcfcf;line-height:1.55;margin:0;animation:none}
@@ -163,12 +162,12 @@
         <span class="burst" aria-hidden="true"><i style="--tx:0px;--ty:-72px"></i><i style="--tx:52px;--ty:-52px"></i><i style="--tx:72px;--ty:0px"></i><i style="--tx:52px;--ty:52px"></i><i style="--tx:0px;--ty:72px"></i><i style="--tx:-52px;--ty:52px"></i><i style="--tx:-72px;--ty:0px"></i><i style="--tx:-52px;--ty:-52px"></i><i style="--tx:26px;--ty:-66px"></i><i style="--tx:-26px;--ty:66px"></i></span>
       </div>
       <h2 id="doneTitle">Thanks for joining!</h2>
-      <p id="doneSub">You are in the queue. Welcome to the circle — when the beta opens, your invitation lands in your inbox, and members who bring genuine builders through their link enter first.</p>
-      <div class="qchip" id="qChip"><span>YOUR QUEUE PLACE</span><b id="qPos">#–</b></div>
+      <p id="doneSub">You're on the waitlist. Welcome to the circle — when the beta opens, your invitation lands in your inbox, and members who bring genuine builders through their link enter first.</p>
       <div class="invitebox">
         <p class="big">Your personal invite link</p>
         <p>Share it anywhere. Every builder who joins through it moves you up the line.</p>
         <div class="link" id="wlLink"></div>
+        <button class="copybtn" id="copyBtn" type="button">Copy link</button>
       </div>
       <a class="home" href="index.html">Back to home</a>
     </div>
@@ -239,13 +238,24 @@ if (BACKEND_URL && typeof fetch === 'function'){ try { fetch(BACKEND_URL + '/hea
   }
   function showDone(){
     document.getElementById('wlLink').textContent = location.origin + location.pathname.replace('join.html','') + '?ref=' + data.code;
-    if (data.name) document.getElementById('doneSub').textContent = 'You are in the queue, ' + data.name.split(' ')[0] + '. Welcome to the circle — when the beta opens, your invitation lands in your inbox, and members who bring genuine builders through their link enter first.';
-    if (data.position){ document.getElementById('qPos').textContent = '#' + data.position; document.getElementById('qChip').classList.add('on'); }
+    if (data.returning) document.getElementById('doneSub').textContent = 'This device is already on the waitlist' + (data.name ? ', ' + data.name.split(' ')[0] : '') + ' — here is your invite link again. One signup per person keeps the circle honest.';
+    else if (data.name) document.getElementById('doneSub').textContent = "You're on the waitlist, " + data.name.split(' ')[0] + '. Welcome to the circle — when the beta opens, your invitation lands in your inbox, and members who bring genuine builders through their link enter first.';
     document.querySelectorAll('.step').forEach(function(st){ st.classList.remove('active'); });
     cur = TOTAL + 1; paint();
     document.getElementById('doneBox').classList.add('active');
   }
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    var btn = this, link = document.getElementById('wlLink').textContent;
+    function ok(){ btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = 'Copy link'; }, 2000); }
+    if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(link).then(ok).catch(function(){ fallback(); }); } else fallback();
+    function fallback(){ var t = document.createElement('textarea'); t.value = link; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); ok(); } catch(_){} document.body.removeChild(t); }
+  });
   function finish(){
+    // One signup per device: if this device already joined with another email,
+    // show that signup again instead of creating a second one.
+    try { var sv = JSON.parse(localStorage.getItem('gt_waitlist') || 'null');
+      if (sv && sv.email && sv.email !== document.getElementById('fEmail').value.trim().toLowerCase()){
+        data = Object.assign({}, sv, { returning: true }); showDone(); return; } } catch(_){}
     data.email = document.getElementById('fEmail').value.trim().toLowerCase();
     data.name = document.getElementById('fName').value.trim();
     data.location = document.getElementById('fLoc').value.trim();
@@ -263,10 +273,12 @@ if (BACKEND_URL && typeof fetch === 'function'){ try { fetch(BACKEND_URL + '/hea
       body: JSON.stringify(data)
     }).then(function(r){ return r.json(); }).then(function(res){
       if (res && res.code) data.code = res.code; // backend confirms (or dedupes to) the same code
-      if (res && res.position) data.position = res.position; // real queue place from the backend
       clearTimeout(timer); settle();
     }).catch(function(){ clearTimeout(timer); settle(); }); // offline fallback: local copy already saved
   }
+  // Returning visitor on the same device: skip the wizard, show their link.
+  try { var saved = JSON.parse(localStorage.getItem('gt_waitlist') || 'null');
+    if (saved && saved.email && saved.code){ data = Object.assign({}, data, saved, { returning: true }); showDone(); } } catch(_){}
   document.querySelectorAll('[data-next]').forEach(function(b){
     b.addEventListener('click', function(){ if (!valid(cur)) return; if (cur === TOTAL) finish(); else show(cur + 1); });
   });

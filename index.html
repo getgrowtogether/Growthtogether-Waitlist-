@@ -134,8 +134,15 @@
   details{border-bottom:1px solid var(--line);padding:18px 4px}
   summary{font-weight:600;cursor:pointer;font-size:16px}
   details p{color:var(--grey);line-height:1.65;margin-top:8px;font-size:15px}
-  footer{border-top:2px solid var(--black);padding:42px 0;font-size:14px;color:var(--grey)}
-  footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+  footer{border-top:3px solid var(--black);padding:54px 0 0;font-size:14px;color:var(--grey);background:#fff}
+  .footgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:38px;padding-bottom:42px}
+  .footbrand p{margin-top:13px;line-height:1.65;max-width:320px}
+  .footcol h4{color:var(--black);font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin:4px 0 13px}
+  .footcol a{display:block;padding:5px 0;color:var(--grey);text-decoration:none;font-size:14.5px}
+  .footcol a:hover{color:var(--black);text-decoration:underline}
+  .footbar{border-top:1px solid #e8e8e8;padding:19px 0 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+  @media(max-width:760px){.footgrid{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.footgrid{grid-template-columns:1fr}}
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 
   .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;align-items:center}
@@ -414,21 +421,35 @@
 
 <footer>
   <div class="wrap">
-    <a class="logo" href="#" aria-label="GrowTogether home">
-      <svg viewBox="0 0 100 100" width="28" height="28" aria-hidden="true"><circle cx="50" cy="16" r="5" fill="#000"/><circle cx="71.9" cy="24" r="5.7" fill="#000"/><circle cx="83.5" cy="44.1" r="6.4" fill="#000"/><circle cx="79.4" cy="67" r="7" fill="#000"/><circle cx="61.6" cy="82" r="7.7" fill="#000"/><circle cx="38.4" cy="82" r="8.4" fill="#000"/><circle cx="20.6" cy="67" r="9" fill="#000"/><circle cx="16.5" cy="44.1" r="9.7" fill="#000"/><circle cx="28.1" cy="24" r="10.4" fill="#000"/><circle cx="50" cy="50" r="11" fill="#000"/></svg>
-      GrowTogether
-    </a>
-    <span>Grow Together. Promote Together.</span>
-    <a href="free-website-promotion.html">Free promotion guide</a>
-    <a href="promote-telegram-channel-free.html">Telegram promotion guide</a>
-    <a href="promote-youtube-channel-free.html">YouTube promotion guide</a>
-    <a href="free-advertising-sites.html">Free advertising sites directory</a>
-    <a href="promote-app-free.html">App promotion guide</a>
-    <a href="promote-podcast-free.html">Podcast promotion guide</a>
-    <a href="promote-discord-server-free.html">Discord server promotion guide</a>
-    <a href="promote-instagram-page-free.html">Instagram promotion guide</a>
-    <a href="promote-facebook-page-free.html">Facebook promotion guide</a>
-    <span>© 2026 GrowTogether — the global mutual-discovery circle.</span>
+    <div class="footgrid">
+      <div class="footbrand">
+        <a class="logo" href="#" aria-label="GrowTogether home">
+          <svg viewBox="0 0 100 100" width="28" height="28" aria-hidden="true"><circle cx="50" cy="16" r="5" fill="#000"/><circle cx="71.9" cy="24" r="5.7" fill="#000"/><circle cx="83.5" cy="44.1" r="6.4" fill="#000"/><circle cx="79.4" cy="67" r="7" fill="#000"/><circle cx="61.6" cy="82" r="7.7" fill="#000"/><circle cx="38.4" cy="82" r="8.4" fill="#000"/><circle cx="20.6" cy="67" r="9" fill="#000"/><circle cx="16.5" cy="44.1" r="9.7" fill="#000"/><circle cx="28.1" cy="24" r="10.4" fill="#000"/><circle cx="50" cy="50" r="11" fill="#000"/></svg>
+          GrowTogether
+        </a>
+        <p>The free mutual-discovery circle for websites, apps, SaaS, Telegram bots and channels — discover others, get discovered.</p>
+      </div>
+      <div class="footcol">
+        <h4>Free promotion guides</h4>
+        <a href="free-website-promotion.html">Promote your website for free</a>
+        <a href="free-advertising-sites.html">Free advertising sites directory</a>
+        <a href="promote-telegram-channel-free.html">Promote a Telegram channel</a>
+        <a href="promote-youtube-channel-free.html">Promote a YouTube channel</a>
+        <a href="promote-app-free.html">Promote your app</a>
+      </div>
+      <div class="footcol">
+        <h4>More guides</h4>
+        <a href="promote-podcast-free.html">Promote a podcast</a>
+        <a href="promote-discord-server-free.html">Promote a Discord server</a>
+        <a href="promote-instagram-page-free.html">Promote an Instagram page</a>
+        <a href="promote-facebook-page-free.html">Promote a Facebook page</a>
+        <a href="join.html">Join the waitlist</a>
+      </div>
+    </div>
+    <div class="footbar">
+      <span>Grow Together. Promote Together.</span>
+      <span>© 2026 GrowTogether — the global mutual-discovery circle.</span>
+    </div>
   </div>
 </footer>
 
@@ -486,6 +507,10 @@
 // Warm up the waitlist backend while the visitor reads (free hosting sleeps when
 // idle), so joining is instant when they tap through to the join page.
 try { fetch('https://growtogether-waitlist.onrender.com/health').catch(function(){}); } catch(_){}
+// Already joined on this device? The join buttons say so — and lead to their link.
+try { var sv = JSON.parse(localStorage.getItem('gt_waitlist') || 'null');
+  if (sv && sv.code){ document.querySelectorAll('a[href="join.html"]').forEach(function(a){ a.textContent = "You're on the waitlist — your invite link"; }); }
+} catch(_){}
 </script>
 </body>
 </html>
