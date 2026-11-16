@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the Waitlist — GrowTogether | Free Promotion for Everything You Create</title>
+<meta name="description" content="Join the GrowTogether waitlist in under a minute. Free promotion for your website, app, SaaS, Telegram bot, YouTube channel, Instagram profile or Facebook page — powered by a global circle that discovers each other.">
+<meta name="robots" content="index, follow">
+<style>
+  :root{--black:#000;--ink:#0a0a0a;--white:#fff;--grey:#5c5c5c;--mid:#9a9a9a;--line:#e7e7e7}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Inter","Manrope",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;position:relative;overflow-x:hidden}
+  #dots{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+  .glow{position:fixed;inset:0;z-index:0;background:radial-gradient(820px 460px at 50% -100px,#f2f2f2 0%,rgba(255,255,255,0) 60%)}
+  header{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;max-width:1160px;margin:0 auto;padding:20px 22px}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:-.02em;font-size:20px;text-decoration:none;color:var(--black)}
+  .logo svg{width:30px;height:30px}
+  .backlink{font-size:14px;color:var(--grey);text-decoration:none;font-weight:550}
+  .backlink:hover{color:var(--black)}
+  main{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:26px 20px 70px}
+  .head{text-align:center;max-width:560px}
+  .head h1{font-size:clamp(30px,5vw,42px);font-weight:700;letter-spacing:-.025em;line-height:1.12}
+  .head p{color:var(--grey);margin-top:10px;line-height:1.6;font-size:15.5px}
+
+  /* progress — the growing dots of the brand */
+  .progress{display:flex;align-items:flex-end;gap:10px;margin:30px 0 22px;height:22px}
+  .progress .pd{border-radius:50%;border:2px solid var(--black);background:transparent;transition:all .35s ease}
+  .progress .pd.done{background:var(--black)}
+  .progress .pd.now{box-shadow:0 0 0 5px rgba(0,0,0,.08)}
+
+  /* glass card */
+  .card{width:100%;max-width:520px;background:rgba(255,255,255,.66);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid rgba(0,0,0,.09);border-radius:22px;box-shadow:0 24px 60px rgba(0,0,0,.10),inset 0 1px 0 rgba(255,255,255,.9);padding:32px 30px;position:relative;overflow:hidden}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,1),transparent)}
+  .step{display:none}
+  .step.active{display:block;animation:rise .35s ease}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .step .q{font-size:21px;font-weight:650;letter-spacing:-.015em;line-height:1.3}
+  .step .hint{color:var(--grey);font-size:14px;line-height:1.55;margin-top:7px}
+  .step input{width:100%;margin-top:20px;padding:14.5px 15px;border:1.5px solid var(--black);border-radius:12px;font-size:16px;font-family:inherit;background:rgba(255,255,255,.9)}
+  .step input:focus{outline:none;box-shadow:0 0 0 4px rgba(0,0,0,.08)}
+  .err{display:none;color:#000;font-size:13px;margin-top:9px;font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+  .chip{border:1.5px solid var(--black);background:rgba(255,255,255,.85);border-radius:999px;padding:10px 16px;font-size:14px;font-weight:550;cursor:pointer;font-family:inherit;transition:all .15s}
+  .chip:hover{background:#f0f0f0}
+  .chip.sel{background:var(--black);color:#fff}
+  .row{display:flex;justify-content:space-between;align-items:center;margin-top:26px;gap:12px}
+  .btn{background:linear-gradient(180deg,#3d3d3d 0%,#000 55%);color:#fff;font-weight:600;padding:14px 28px;border-radius:999px;border:2px solid #000;font-size:15px;cursor:pointer;font-family:inherit;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 10px 22px rgba(0,0,0,.18);position:relative;overflow:hidden}
+  .btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s ease}
+  .btn:hover::after{left:130%}
+  .btn.ghosty{background:transparent;color:var(--grey);border-color:transparent;box-shadow:none}
+  .btn.ghosty::after{display:none}
+  .btn.ghosty:hover{color:var(--black)}
+  .skip{font-size:13.5px;color:var(--mid);text-align:center;margin-top:14px}
+  .skip button{background:none;border:none;color:var(--grey);font-weight:600;cursor:pointer;font-family:inherit;font-size:13.5px;text-decoration:underline}
+
+  /* success */
+  .donebox{display:none;text-align:center}
+  .donebox.active{display:block;animation:pop .6s cubic-bezier(.2,1.55,.35,1) both}
+  @keyframes pop{0%{opacity:0;transform:scale(.82) translateY(16px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+  .popwrap{position:relative;width:118px;height:118px;margin:6px auto 18px}
+  .donebox .ring{width:118px;height:118px;animation:ringpop .7s cubic-bezier(.2,1.6,.35,1) .1s both}
+  @keyframes ringpop{0%{transform:scale(.4);opacity:0}100%{transform:scale(1);opacity:1}}
+  .burst{position:absolute;inset:0;pointer-events:none}
+  .burst i{position:absolute;left:50%;top:50%;width:7px;height:7px;margin:-3.5px;border-radius:50%;background:#000;opacity:0;animation:burstfly .85s cubic-bezier(.15,.8,.35,1) .3s both}
+  @keyframes burstfly{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(.35)}}
+  .donebox h2{font-size:36px;font-weight:750;letter-spacing:-.03em;line-height:1.08;animation:fadeup .5s ease .25s both}
+  .donebox p{color:var(--grey);line-height:1.6;margin-top:11px;font-size:15.5px;animation:fadeup .5s ease .38s both}
+  @keyframes fadeup{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
+  .qchip{display:none;margin:18px auto 0;align-items:center;gap:10px;background:#000;color:#fff;border-radius:999px;padding:9px 18px 9px 16px;font-size:13px;font-weight:600;letter-spacing:.04em;box-shadow:0 12px 26px rgba(0,0,0,.22);animation:fadeup .5s ease .5s both}
+  .qchip.on{display:inline-flex}
+  .qchip b{font-size:17px;font-weight:750;letter-spacing:0}
+  .invitebox{margin-top:22px;background:var(--black);color:#fff;border-radius:18px;padding:24px;text-align:left;box-shadow:0 22px 44px rgba(0,0,0,.25);animation:fadeup .55s ease .55s both}
+  .invitebox .big{font-weight:650;font-size:16.5px;margin-bottom:6px}
+  .invitebox p{font-size:13.5px;color:#cfcfcf;line-height:1.55;margin:0;animation:none}
+  .invitebox .link{margin-top:13px;background:#fff;color:#000;border-radius:10px;padding:13px 14px;font-size:13.5px;word-break:break-all;font-weight:600}
+  .home{display:inline-block;margin-top:24px;color:var(--black);font-weight:600;font-size:14.5px;animation:fadeup .5s ease .7s both}
+  .fine{margin-top:20px;font-size:12.5px;color:var(--mid);text-align:center;max-width:440px;line-height:1.6}
+  @media (prefers-reduced-motion: reduce){.step.active,.donebox.active,.donebox *{animation:none!important}}
+</style>
+</head>
+<body>
+<canvas id="dots" aria-hidden="true"></canvas>
+<div class="glow" aria-hidden="true"></div>
+
+<header>
+  <a class="logo" href="index.html" aria-label="GrowTogether home">
+    <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="34" fill="none" stroke="#000" stroke-opacity=".14" stroke-width="3"/><circle cx="50" cy="16" r="5" fill="#000"/><circle cx="71.9" cy="24" r="5.7" fill="#000"/><circle cx="83.5" cy="44.1" r="6.4" fill="#000"/><circle cx="79.4" cy="67" r="7" fill="#000"/><circle cx="61.6" cy="82" r="7.7" fill="#000"/><circle cx="38.4" cy="82" r="8.4" fill="#000"/><circle cx="20.6" cy="67" r="9" fill="#000"/><circle cx="16.5" cy="44.1" r="9.7" fill="#000"/><circle cx="28.1" cy="24" r="10.4" fill="#000"/><circle cx="50" cy="50" r="11" fill="#000"/></svg>
+    GrowTogether
+  </a>
+  <a class="backlink" href="index.html">&larr; Back to home</a>
+</header>
+
+<main>
+  <div class="head">
+    <h1>Join the circle</h1>
+    <p>Five quick questions — one at a time. Less than a minute, and your invite link is yours.</p>
+  </div>
+
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <div class="card" id="card">
+    <!-- STEP 1 · email -->
+    <div class="step active" data-step="1">
+      <p class="q">What is your email?</p>
+      <p class="hint">Your beta invitation and your circle account will live here. Nothing else — no spam, ever.</p>
+      <input type="email" id="fEmail" placeholder="you@example.com" autocomplete="email">
+      <p class="err" id="eEmail">Please enter a valid email address.</p>
+      <div class="row"><span></span><button class="btn" data-next>Continue</button></div>
+    </div>
+
+    <!-- STEP 2 · name -->
+    <div class="step" data-step="2">
+      <p class="q">What should the circle call you?</p>
+      <p class="hint">Your name or your brand name — this is how members will know you.</p>
+      <input type="text" id="fName" placeholder="Your name or brand" autocomplete="name">
+      <p class="err" id="eName">Please tell us your name.</p>
+      <div class="row"><button class="btn ghosty" data-back>Back</button><button class="btn" data-next>Continue</button></div>
+    </div>
+
+    <!-- STEP 3 · location -->
+    <div class="step" data-step="3">
+      <p class="q">Where in the world are you?</p>
+      <p class="hint">The circle is global. Your country helps us match you with members near and far.</p>
+      <input type="text" id="fLoc" placeholder="Country (e.g. India, USA, Brazil…)" autocomplete="country-name">
+      <p class="err" id="eLoc">Please tell us your country.</p>
+      <div class="row"><button class="btn ghosty" data-back>Back</button><button class="btn" data-next>Continue</button></div>
+    </div>
+
+    <!-- STEP 4 · project type -->
+    <div class="step" data-step="4">
+      <p class="q">What will you promote?</p>
+      <p class="hint">Pick the closest one. Everything is welcome — that is the whole point of one circle for all.</p>
+      <div class="chips" id="typeChips">
+        <button type="button" class="chip">Website</button>
+        <button type="button" class="chip">SaaS / web app</button>
+        <button type="button" class="chip">Mobile app</button>
+        <button type="button" class="chip">Telegram bot / channel</button>
+        <button type="button" class="chip">YouTube channel</button>
+        <button type="button" class="chip">Instagram profile</button>
+        <button type="button" class="chip">Facebook page</button>
+        <button type="button" class="chip">Social profile</button>
+        <button type="button" class="chip">Open source</button>
+        <button type="button" class="chip">Podcast / newsletter</button>
+        <button type="button" class="chip">Something else</button>
+      </div>
+      <p class="err" id="eType">Please pick one.</p>
+      <div class="row"><button class="btn ghosty" data-back>Back</button><button class="btn" data-next>Continue</button></div>
+    </div>
+
+    <!-- STEP 5 · project link (optional) -->
+    <div class="step" data-step="5">
+      <p class="q">Your project link — if you have one</p>
+      <p class="hint">Optional. Add it now and your listing is halfway ready for the beta. No link yet? Skip — you can add it any time.</p>
+      <input type="text" id="fUrl" placeholder="yourproject.com or a channel / page link" inputmode="url">
+      <div class="row"><button class="btn ghosty" data-back>Back</button><button class="btn" data-next>Finish</button></div>
+      <p class="skip">No link yet? <button type="button" id="skipUrl">Skip this step</button></p>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="donebox" id="doneBox">
+      <div class="popwrap">
+        <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="34" fill="none" stroke="#000" stroke-opacity=".14" stroke-width="2"/><circle cx="50" cy="16" r="4" fill="#000"/><circle cx="71.9" cy="24" r="4.6" fill="#000"/><circle cx="83.5" cy="44.1" r="5.2" fill="#000"/><circle cx="79.4" cy="67" r="5.8" fill="#000"/><circle cx="61.6" cy="82" r="6.4" fill="#000"/><circle cx="38.4" cy="82" r="7" fill="#000"/><circle cx="20.6" cy="67" r="7.6" fill="#000"/><circle cx="16.5" cy="44.1" r="8.2" fill="#000"/><circle cx="28.1" cy="24" r="8.8" fill="#000"/><circle cx="50" cy="50" r="9" fill="#000"/></svg>
+        <span class="burst" aria-hidden="true"><i style="--tx:0px;--ty:-72px"></i><i style="--tx:52px;--ty:-52px"></i><i style="--tx:72px;--ty:0px"></i><i style="--tx:52px;--ty:52px"></i><i style="--tx:0px;--ty:72px"></i><i style="--tx:-52px;--ty:52px"></i><i style="--tx:-72px;--ty:0px"></i><i style="--tx:-52px;--ty:-52px"></i><i style="--tx:26px;--ty:-66px"></i><i style="--tx:-26px;--ty:66px"></i></span>
+      </div>
+      <h2 id="doneTitle">Thanks for joining!</h2>
+      <p id="doneSub">You are in the queue. Welcome to the circle — when the beta opens, your invitation lands in your inbox, and members who bring genuine builders through their link enter first.</p>
+      <div class="qchip" id="qChip"><span>YOUR QUEUE PLACE</span><b id="qPos">#–</b></div>
+      <div class="invitebox">
+        <p class="big">Your personal invite link</p>
+        <p>Share it anywhere. Every builder who joins through it moves you up the line.</p>
+        <div class="link" id="wlLink"></div>
+      </div>
+      <a class="home" href="index.html">Back to home</a>
+    </div>
+  </div>
+
+  <p class="fine">The whole circle is free — no plans, no pricing. Your details are used only for your waitlist place and your beta invitation — never sold, never shared.</p>
+</main>
+
+<script>
+// Animated black dot field on bright white — light canvas, respects reduced motion.
+(function(){
+  var c = document.getElementById('dots'); if(!c) return;
+  var ctx = c.getContext('2d'), W, H, dots = [], raf;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){
+    W = c.width = window.innerWidth; H = c.height = window.innerHeight;
+    var n = Math.min(110, Math.floor(W * H / 16000)); dots = [];
+    for (var i = 0; i < n; i++) dots.push({ x: Math.random()*W, y: Math.random()*H, r: Math.random()*1.9+.7, vx: (Math.random()-.5)*.16, vy: (Math.random()-.5)*.16, a: Math.random()*.20+.06 });
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for (var i = 0; i < dots.length; i++){ var d = dots[i];
+      ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, 6.2832); ctx.fillStyle = 'rgba(0,0,0,'+d.a+')'; ctx.fill();
+      if (!reduce){ d.x += d.vx; d.y += d.vy; if (d.x<0||d.x>W) d.vx*=-1; if (d.y<0||d.y>H) d.vy*=-1; }
+    }
+    if (!reduce) raf = requestAnimationFrame(draw);
+  }
+  size(); draw();
+  window.addEventListener('resize', function(){ cancelAnimationFrame(raf); size(); draw(); });
+})();
+
+// One-box-at-a-time waitlist wizard.
+// Sends the signup to the waitlist backend when BACKEND_URL is set (Render URL
+// after deploy); when it is empty or unreachable, the signup is still saved on
+// this device and the invite code is the same hash the backend generates.
+var BACKEND_URL = 'https://growtogether-waitlist.onrender.com'; // live waitlist backend — no trailing slash
+// Warm the backend up the moment this page opens (free hosting sleeps when idle),
+// so it is awake by the time the visitor finishes the five steps.
+if (BACKEND_URL && typeof fetch === 'function'){ try { fetch(BACKEND_URL + '/health').catch(function(){}); } catch(_){} }
+(function(){
+  var TOTAL = 5, cur = 1, data = { type: '' };
+  var prog = document.getElementById('progress');
+  for (var i = 0; i < TOTAL; i++){
+    var d = document.createElement('span');
+    d.className = 'pd'; var sz = 10 + i * 2.5;
+    d.style.width = sz + 'px'; d.style.height = sz + 'px';
+    prog.appendChild(d);
+  }
+  var pdots = prog.children;
+  function paint(){
+    for (var i = 0; i < TOTAL; i++){
+      pdots[i].classList.toggle('done', i < cur - 1 || (cur > TOTAL));
+      pdots[i].classList.toggle('now', i === cur - 1);
+    }
+  }
+  function show(n){
+    document.querySelectorAll('.step').forEach(function(st){ st.classList.toggle('active', +st.dataset.step === n); });
+    cur = n; paint();
+    var inp = document.querySelector('.step.active input'); if (inp) inp.focus();
+  }
+  function err(id, on){ document.getElementById(id).style.display = on ? 'block' : 'none'; return !on; }
+  function valid(n){
+    if (n === 1){ var v = document.getElementById('fEmail').value.trim(); return err('eEmail', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)); }
+    if (n === 2){ return err('eName', !document.getElementById('fName').value.trim()); }
+    if (n === 3){ return err('eLoc', !document.getElementById('fLoc').value.trim()); }
+    if (n === 4){ return err('eType', !data.type); }
+    return true;
+  }
+  function showDone(){
+    document.getElementById('wlLink').textContent = location.origin + location.pathname.replace('join.html','') + '?ref=' + data.code;
+    if (data.name) document.getElementById('doneSub').textContent = 'You are in the queue, ' + data.name.split(' ')[0] + '. Welcome to the circle — when the beta opens, your invitation lands in your inbox, and members who bring genuine builders through their link enter first.';
+    if (data.position){ document.getElementById('qPos').textContent = '#' + data.position; document.getElementById('qChip').classList.add('on'); }
+    document.querySelectorAll('.step').forEach(function(st){ st.classList.remove('active'); });
+    cur = TOTAL + 1; paint();
+    document.getElementById('doneBox').classList.add('active');
+  }
+  function finish(){
+    data.email = document.getElementById('fEmail').value.trim().toLowerCase();
+    data.name = document.getElementById('fName').value.trim();
+    data.location = document.getElementById('fLoc').value.trim();
+    data.url = document.getElementById('fUrl').value.trim();
+    try { var q = new URLSearchParams(location.search); data.ref = q.get('ref') || ''; } catch(_){ data.ref = ''; }
+    var h = 0; for (var i = 0; i < data.email.length; i++){ h = ((h << 5) - h + data.email.charCodeAt(i)) | 0; }
+    data.code = 'gt-' + Math.abs(h).toString(36); // same hash as the backend — identical code either way
+    try { localStorage.setItem('gt_waitlist', JSON.stringify(Object.assign({}, data, { at: Date.now() }))); } catch(_){}
+    if (!BACKEND_URL || typeof fetch !== 'function'){ showDone(); return; }
+    var done = false;
+    function settle(){ if (!done){ done = true; showDone(); } }
+    var timer = setTimeout(settle, 8000); // never leave the visitor waiting on a slow backend
+    fetch(BACKEND_URL + '/api/waitlist', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(r){ return r.json(); }).then(function(res){
+      if (res && res.code) data.code = res.code; // backend confirms (or dedupes to) the same code
+      if (res && res.position) data.position = res.position; // real queue place from the backend
+      clearTimeout(timer); settle();
+    }).catch(function(){ clearTimeout(timer); settle(); }); // offline fallback: local copy already saved
+  }
+  document.querySelectorAll('[data-next]').forEach(function(b){
+    b.addEventListener('click', function(){ if (!valid(cur)) return; if (cur === TOTAL) finish(); else show(cur + 1); });
+  });
+  document.querySelectorAll('[data-back]').forEach(function(b){
+    b.addEventListener('click', function(){ show(cur - 1); });
+  });
+  document.getElementById('skipUrl').addEventListener('click', function(){ document.getElementById('fUrl').value = ''; finish(); });
+  document.querySelectorAll('#typeChips .chip').forEach(function(ch){
+    ch.addEventListener('click', function(){
+      document.querySelectorAll('#typeChips .chip').forEach(function(x){ x.classList.remove('sel'); });
+      ch.classList.add('sel'); data.type = ch.textContent.trim(); err('eType', false);
+    });
+  });
+  document.getElementById('card').addEventListener('keydown', function(e){
+    if (e.key === 'Enter' && e.target.tagName === 'INPUT'){ e.preventDefault(); if (valid(cur)) (cur === TOTAL) ? finish() : show(cur + 1); }
+  });
+  paint();
+})();
+</script>
+</body>
+</html>

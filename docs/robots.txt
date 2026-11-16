@@ -1,0 +1,24 @@
+# GrowTogether — search and AI-search crawlers are welcome.
+# Search bots (Google, Bing, and the AI answer engines' SEARCH indexes) are
+# explicitly allowed. Training crawlers are a separate decision, not granted here.
+
+User-agent: *
+Allow: /
+
+# AI search crawlers — allowed so GrowTogether can appear in AI answers
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap line will be added with the real domain the day hosting goes live.
