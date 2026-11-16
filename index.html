@@ -100,6 +100,27 @@
   .dash .stat{border:1.5px solid var(--line);border-radius:12px;padding:12px;background:var(--white);text-align:center}
   .dash .stat b{font-size:19px;display:block}
   .dash .stat span{font-size:11.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.06em}
+  /* circle visual (hero) */
+  .circlevis{position:relative;background:var(--white);border:2px solid var(--black);border-radius:20px;padding:22px;overflow:hidden}
+  .circlevis .dotsbg{position:absolute;inset:0;background-image:radial-gradient(#000 1.1px, transparent 1.2px);background-size:22px 22px;opacity:.10}
+  .circlevis > *{position:relative}
+  .circlevis .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .circlevis .top b{font-size:14px;letter-spacing:.02em}
+  .circlevis .pill{border:1.5px solid var(--black);border-radius:999px;padding:4px 11px;font-size:12px;font-weight:600}
+  .stage{position:relative;height:290px;margin-top:6px}
+  .stage .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;border:2px solid #000;border-radius:50%;width:128px;height:128px;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 34px rgba(0,0,0,.14);z-index:2}
+  .stage .ring{position:absolute;left:50%;top:50%;width:128px;height:128px;margin:-64px 0 0 -64px;border:1.5px solid rgba(0,0,0,.4);border-radius:50%;animation:pulse 3.2s ease-out infinite}
+  .stage .ring.r2{animation-delay:1.6s}
+  @keyframes pulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(2.05);opacity:0}}
+  .stage .chip{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);background:#fff;border:1.5px solid #000;border-radius:999px;padding:6px 13px;font-size:12.5px;font-weight:650;white-space:nowrap;box-shadow:0 6px 14px rgba(0,0,0,.10);animation:bob 3.6s ease-in-out var(--d) infinite;z-index:2}
+  @keyframes bob{0%,100%{margin-top:0}50%{margin-top:-7px}}
+  .loop{display:flex;align-items:stretch;gap:8px;margin-top:10px}
+  .lstep{flex:1;border:1.5px solid var(--line);border-radius:12px;padding:11px 8px;text-align:center;background:#fff}
+  .lstep b{display:block;font-size:14.5px}
+  .lstep span{font-size:11.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.05em}
+  .larrow{align-self:center;font-size:17px;font-weight:700}
+  @media(max-width:480px){.stage{height:250px}.stage .core{width:108px;height:108px}.stage .ring{width:108px;height:108px;margin:-54px 0 0 -54px}}
+  @media (prefers-reduced-motion: reduce){.stage .ring,.stage .chip{animation:none}}
 
   /* sections */
   section{padding:86px 0}
@@ -203,19 +224,29 @@
       </div>
       <p class="fineprint">Takes less than a minute &middot; No card &middot; No fees, ever &middot; Your own invite link the moment you join</p>
     </div>
-    <div class="dash" aria-hidden="true">
+    <div class="circlevis">
       <div class="dotsbg"></div>
-      <div class="top"><b>Your circle dashboard</b><span class="pill">FREE FOREVER</span></div>
-      <div class="proj"><b>Project Aurora — SaaS</b><span>In fair rotation · being discovered now</span></div>
-      <div class="proj"><b>Pixel Pets — Mobile app</b><span>New feedback from 3 members</span></div>
-      <div class="mission">Today&rsquo;s mission
-        <span class="mdot on"></span><span class="mdot on"></span><span class="mdot on"></span><span class="mdot"></span><span class="mdot"></span>
-        &nbsp;3 / 5 discovered
+      <div class="top"><b>One circle. Every project.</b><span class="pill">FREE FOREVER</span></div>
+      <div class="stage">
+        <span class="ring r1"></span><span class="ring r2"></span>
+        <div class="core">
+          <svg viewBox="0 0 100 100" width="86" height="86" aria-hidden="true"><circle cx="50" cy="16" r="5" fill="#000"/><circle cx="71.9" cy="24" r="5.7" fill="#000"/><circle cx="83.5" cy="44.1" r="6.4" fill="#000"/><circle cx="79.4" cy="67" r="7" fill="#000"/><circle cx="61.6" cy="82" r="7.7" fill="#000"/><circle cx="38.4" cy="82" r="8.4" fill="#000"/><circle cx="20.6" cy="67" r="9" fill="#000"/><circle cx="16.5" cy="44.1" r="9.7" fill="#000"/><circle cx="28.1" cy="24" r="10.4" fill="#000"/><circle cx="50" cy="50" r="11" fill="#000"/></svg>
+        </div>
+        <span class="chip" style="--x:50%;--y:5%;--d:0s">Website</span>
+        <span class="chip" style="--x:84%;--y:15%;--d:.4s">App</span>
+        <span class="chip" style="--x:88%;--y:48%;--d:.8s">SaaS</span>
+        <span class="chip" style="--x:84%;--y:85%;--d:1.2s">YouTube</span>
+        <span class="chip" style="--x:50%;--y:96%;--d:1.6s">Telegram</span>
+        <span class="chip" style="--x:16%;--y:85%;--d:2s">Podcast</span>
+        <span class="chip" style="--x:12%;--y:48%;--d:2.4s">Discord</span>
+        <span class="chip" style="--x:16%;--y:15%;--d:2.8s">Newsletter</span>
       </div>
-      <div class="stats">
-        <div class="stat"><b>18</b><span>Credits</span></div>
-        <div class="stat"><b>42</b><span>Real visits</span></div>
-        <div class="stat"><b>34</b><span>People reached</span></div>
+      <div class="loop">
+        <div class="lstep"><b>Discover 5</b><span>Projects</span></div>
+        <span class="larrow">&rarr;</span>
+        <div class="lstep"><b>Earn credits</b><span>For discovering</span></div>
+        <span class="larrow">&rarr;</span>
+        <div class="lstep"><b>Get discovered</b><span>By the circle</span></div>
       </div>
     </div>
   </div>
