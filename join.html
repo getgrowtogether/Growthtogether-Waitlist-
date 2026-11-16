@@ -71,7 +71,9 @@
   .invitebox{margin-top:22px;background:var(--black);color:#fff;border-radius:18px;padding:24px;text-align:left;box-shadow:0 22px 44px rgba(0,0,0,.25);animation:fadeup .55s ease .55s both}
   .invitebox .big{font-weight:650;font-size:16.5px;margin-bottom:6px}
   .invitebox p{font-size:13.5px;color:#cfcfcf;line-height:1.55;margin:0;animation:none}
-  .invitebox .link{margin-top:13px;background:#fff;color:#000;border-radius:10px;padding:13px 14px;font-size:13.5px;word-break:break-all;font-weight:600}
+  .invitebox .link{margin-top:13px;background:#fff;color:#000;border-radius:10px;padding:13px 14px;font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .codechip{display:inline-flex;gap:9px;align-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;border-radius:999px;padding:7px 15px;font-size:11.5px;font-weight:600;letter-spacing:.07em;margin-top:2px}
+  .codechip b{font-size:15px;letter-spacing:.02em}
   .home{display:inline-block;margin-top:24px;color:var(--black);font-weight:600;font-size:14.5px;animation:fadeup .5s ease .7s both}
   .fine{margin-top:20px;font-size:12.5px;color:var(--mid);text-align:center;max-width:440px;line-height:1.6}
   @media (prefers-reduced-motion: reduce){.step.active,.donebox.active,.donebox *{animation:none!important}}
@@ -165,7 +167,8 @@
       <p id="doneSub">You're on the waitlist. Welcome to the circle — when the beta opens, your invitation lands in your inbox, and members who bring genuine builders through their link enter first.</p>
       <div class="invitebox">
         <p class="big">Your personal invite link</p>
-        <p>Share it anywhere. Every builder who joins through it moves you up the line.</p>
+        <p>Share your code with friends, or copy the full link below. Every builder who joins through you moves you up the line.</p>
+        <div class="codechip">INVITE CODE <b id="wlCode"></b></div>
         <div class="link" id="wlLink"></div>
         <button class="copybtn" id="copyBtn" type="button">Copy link</button>
       </div>
@@ -238,6 +241,7 @@ if (BACKEND_URL && typeof fetch === 'function'){ try { fetch(BACKEND_URL + '/hea
   }
   function showDone(){
     document.getElementById('wlLink').textContent = location.origin + location.pathname.replace('join.html','') + '?ref=' + data.code;
+    document.getElementById('wlCode').textContent = data.code;
     if (data.returning) document.getElementById('doneSub').textContent = 'This device is already on the waitlist' + (data.name ? ', ' + data.name.split(' ')[0] : '') + ' — here is your invite link again. One signup per person keeps the circle honest.';
     else if (data.name) document.getElementById('doneSub').textContent = "You're on the waitlist, " + data.name.split(' ')[0] + '. Welcome to the circle — when the beta opens, your invitation lands in your inbox, and members who bring genuine builders through their link enter first.';
     document.querySelectorAll('.step').forEach(function(st){ st.classList.remove('active'); });
