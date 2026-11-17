@@ -37,11 +37,12 @@
   "mainEntity": [
     {"@type":"Question","name":"How can I promote my website for free?","acceptedAnswer":{"@type":"Answer","text":"Join the waitlist. When the circle opens, you submit your website, discover five projects from other members, and earn discovery credits that place your website in front of real members around the world — no ad budget, no fees, no tricks."}},
     {"@type":"Question","name":"If I only discover a few projects, will only a few people see mine?","acceptedAnswer":{"@type":"Answer","text":"No. Discovering a few projects is how you take part — it is not a one-for-one trade. Your project enters the shared rotation and is shown to members across the whole circle, fairly and in turn. A few minutes from you; the whole circle as your audience."}},
-    {"@type":"Question","name":"Can I promote an app, a Telegram bot, a YouTube channel, an Instagram profile or a Facebook page?","acceptedAnswer":{"@type":"Answer","text":"Yes — that is the point of an all-in-one circle. Websites, SaaS and web apps, mobile apps, Telegram bots and channels, YouTube channels, Instagram profiles, Facebook pages, social profiles, open-source projects, podcasts and newsletters all live in the same circle, and members discover across all of them."}},
-    {"@type":"Question","name":"Is it really free? What is the catch?","acceptedAnswer":{"@type":"Answer","text":"It is free, and the exchange is the catch — an honest one. Instead of money, you contribute real attention: you genuinely discover other members’ projects, and the circle discovers yours. There are no plans and no pricing on GrowTogether — the whole circle is free, and nobody can buy priority inside it."}},
-    {"@type":"Question","name":"Is this a traffic exchange?","acceptedAnswer":{"@type":"Answer","text":"No. Traffic exchanges paid people in credits for opening pages without looking — worthless visits, and the model died. GrowTogether rewards genuine discovery and feedback, counts only sessions that pass integrity checks, and never forces anyone to install, like, subscribe or click an ad."}},
+    {"@type":"Question","name":"What does \u2018discover\u2019 actually mean?","acceptedAnswer":{"@type":"Answer","text":"It depends on the project — but it always means genuinely looking, never a bare click. A website: visit it, and read or try what it offers. A video: watch it properly. A podcast: press play and listen. An app: open it and look around — install it only if you want it. A channel, a server or a profile: open it, look around, and join or follow only if it is genuinely for you. Opening something and closing it a second later is not discovery."}},
+    {"@type":"Question","name":"Can I promote an app, a Telegram bot, a YouTube channel, a Discord server, a TikTok account, an Instagram profile or a Facebook page?","acceptedAnswer":{"@type":"Answer","text":"Yes — that is the point of an all-in-one circle. Websites, SaaS and web apps, mobile apps, Telegram bots and channels, YouTube channels, Discord servers, TikTok accounts, Instagram profiles, Facebook pages, social profiles, open-source projects, podcasts and newsletters all live in the same circle, and members discover across all of them."}},
+    {"@type":"Question","name":"Is it really free? What is the catch?","acceptedAnswer":{"@type":"Answer","text":"It is free, and the exchange is the catch — an honest one. Instead of money, you contribute real attention: you genuinely discover other members’ projects, and the circle discovers yours. There are no plans and no pricing on GrowTogether — the whole circle is free, and nobody can buy priority inside it. GrowTogether is built and run independently. It costs members nothing, sells no data, and runs no ads. How it sustains itself in the long term will be decided openly, with its members, when the time comes."}},
+    {"@type":"Question","name":"Is this a traffic exchange?","acceptedAnswer":{"@type":"Answer","text":"No. Traffic exchanges paid people in credits for opening pages without looking — worthless visits, and the model died. GrowTogether is built the opposite way. Every member is a real person — there is no automated traffic and there are no bots. A discovery counts only when it is a genuine session: a real person who actually stayed and looked, with real time spent and real interaction. A tab opened and abandoned counts for nothing. Nobody is ever asked or rewarded to fake engagement — no fake subscribes, no fake likes, no fake installs — and nobody clicks an ad for credit. People visit a project because they choose to; what they do there is theirs. And discovery happens entirely inside the circle: nobody links to anybody, and there are no backlinks in the system."}},
     {"@type":"Question","name":"Will this bring me customers or a Google ranking?","acceptedAnswer":{"@type":"Answer","text":"No honest platform can promise that, and we will not be the ones who lie to you. What the circle guarantees is the thing money usually buys: real people discovering your project, real feedback, and a fair chance to be found. What your project does with that chance is yours."}},
-    {"@type":"Question","name":"When does it open?","acceptedAnswer":{"@type":"Answer","text":"First, an invite-only beta — so the loop, the fairness rules and the community are proven with real members before the doors open to the world. Waitlist members enter in order, and members who bring genuine builders through their invite link enter first."}}
+    {"@type":"Question","name":"When does it open?","acceptedAnswer":{"@type":"Answer","text":"First, an invite-only beta — so the loop, the fairness rules and the community are proven with real members before the doors open to the world. The beta opens in waves, and everyone on the waitlist gets in. Members who bring in other real members through their invite link move up the line."}}
   ]
 }
 </script>
@@ -329,6 +330,10 @@
     #math .srow{flex-wrap:wrap;gap:8px;padding:20px 4px}
     #math .snum{flex:1 1 100%;font-size:40px}
   }
+  /* Confusion-hunt fixes (2026-11-17): links inside the fine print and the
+     story keep the black & white system instead of browser blue. */
+  .fineprint a{color:inherit;text-decoration:underline}
+  .story p a{color:inherit;text-decoration:underline}
 </style>
 </head>
 <body>
@@ -356,12 +361,13 @@
     <div>
       <span class="kicker"><i></i>The global mutual-discovery circle</span>
       <h1>Free promotion for <span class="out">everything</span> you create.</h1>
-      <p class="lead">A website, an app, a SaaS, a Telegram bot, a YouTube channel, an Instagram profile, a Facebook page — <strong>whatever you have built, this circle gets it discovered.</strong> You discover other members&rsquo; projects; real people discover yours back. The promotion the world pays money for — here, it is free. Forever.</p>
+      <p class="lead">A website, an app, a SaaS, a Telegram bot, a YouTube channel, a Discord server, a TikTok account, an Instagram profile, a Facebook page — <strong>whatever you have built, this circle gets it discovered.</strong> You discover other members&rsquo; projects; real people discover yours back. The promotion the world pays money for — here, it is free. Forever.</p>
       <div class="cta-row">
         <a class="btn big" href="join.html">Join the waitlist — free</a>
         <a class="btn big white" href="#how">See how it works</a>
       </div>
       <p class="fineprint">Takes less than a minute &middot; No card &middot; No fees, ever &middot; Your own invite link the moment you join</p>
+      <p class="fineprint">Your email is only for your invitation and your account — never sold, never shared. <a href="privacy.html">Privacy policy</a>.</p>
     </div>
     <div class="wall">
       <div class="top"><b>One circle. Every project.</b><span class="pill">FREE FOREVER</span></div>
@@ -411,7 +417,7 @@
   <div class="wrap">
     <p class="label">How it works</p>
     <h2>Discover five projects.<br>The circle discovers yours.</h2>
-    <p class="sub">One fair loop for everyone on Earth — a global brand and a first project follow exactly the same rule: give discovery, get discovery.</p>
+    <p class="sub">The circle, in plain words: members discover each other&rsquo;s projects, and the circle discovers theirs back. One fair loop for everyone on Earth — a global brand and a first project follow exactly the same rule: give discovery, get discovery.</p>
     <div class="grid3">
       <div class="card">
         <div class="num">1</div>
@@ -421,12 +427,12 @@
       <div class="card">
         <div class="num">2</div>
         <h3>Discover 5 projects</h3>
-        <p>Explore five projects from other members, matched to what you care about. Open them, try them, leave honest feedback when you have something real to say.</p>
+        <p>Explore five projects from other members, matched to your category and your language. Open them, try them, leave honest feedback when you have something real to say.</p>
       </div>
       <div class="card">
         <div class="num">3</div>
         <h3>Get discovered back</h3>
-        <p>Your participation earns discovery credits. Your project enters the fair rotation and is shown to members around the world — with honest numbers, never inflated ones.</p>
+        <p>Discovering earns discovery credits — the credit your discovery earns you. Credits place your project into the fair rotation, where every member&rsquo;s project takes its turn in front of the others, and the more you genuinely discover, the more your project is shown. It is a shared rotation, not a one-for-one trade — with honest numbers, never inflated ones.</p>
       </div>
     </div>
   </div>
@@ -438,7 +444,7 @@
     <p class="label">The math of the circle</p>
     <h2>You discover a few. The whole circle discovers you.</h2>
     <div class="mathparas">
-      <p>When the circle opens, you are shown a few projects matched to your category. A few minutes of real discovery — that is all it ever asks of you.</p>
+      <p>When the circle opens, you are shown a few projects matched to your category and your language. A few minutes of real discovery — that is all it ever asks of you.</p>
       <p>In return, your project does not go back to just those few people. It enters the circle&rsquo;s shared rotation, where every project is shown to the other members — fairly, in turn, again and again. <strong>Discovering is how you take part. It is not a one-for-one trade.</strong></p>
     </div>
     <p class="scaleintro">For example — the reach grows with the circle:</p>
@@ -464,6 +470,9 @@
         </ul>
       </div>
     </div>
+    <div class="mathparas">
+      <p>Nothing is forced — and everything is allowed. When a member likes what they find, following, subscribing, joining or buying is theirs to do. That part is real; it is simply never owed.</p>
+    </div>
   </div>
 </section>
 
@@ -481,7 +490,7 @@
       <div class="card">
         <div class="icob"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg></div>
         <h3>A global audience, not a local one</h3>
-        <p>Your project is discovered by members in every country and every time zone. One circle, worldwide — built for the whole internet, not one city or one niche.</p>
+        <p>Your project is discovered by members in every country and every time zone. One circle, worldwide — built for the whole internet: every city, every niche, every language.</p>
       </div>
       <div class="card">
         <div class="icob"><svg class="ico" viewBox="0 0 24 24"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
@@ -521,8 +530,9 @@
       <a class="trow" href="join.html"><span class="tnum">05</span><span class="tname">YouTube channels</span><span class="tdesc">Creators who want real viewers discovering real videos — never fake views, never forced subscriptions.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
       <a class="trow" href="join.html"><span class="tnum">06</span><span class="tname">Instagram profiles</span><span class="tdesc">Creator and brand profiles that grow through genuine discovery, not follow-for-follow games.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
       <a class="trow" href="join.html"><span class="tnum">07</span><span class="tname">Facebook pages</span><span class="tdesc">Pages and communities that deserve an audience beyond the people who already know them.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
-      <a class="trow" href="join.html"><span class="tnum">08</span><span class="tname">Social profiles</span><span class="tdesc">TikTok, X, LinkedIn and every profile where your work lives and waits to be found.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
-      <a class="trow" href="join.html"><span class="tnum">09</span><span class="tname">Open source, podcasts &amp; more</span><span class="tdesc">Repositories, podcasts, newsletters, games and digital tools of every kind. If it can be opened, it can be discovered.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
+      <a class="trow" href="join.html"><span class="tnum">08</span><span class="tname">Discord servers</span><span class="tdesc">Community servers that grow when real people arrive, look around and join the conversation — never invite spam.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
+      <a class="trow" href="join.html"><span class="tnum">09</span><span class="tname">TikTok &amp; social profiles</span><span class="tdesc">TikTok accounts, X, LinkedIn and every profile where your work lives and waits to be found.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
+      <a class="trow" href="join.html"><span class="tnum">10</span><span class="tname">Open source, podcasts &amp; more</span><span class="tdesc">Repositories, podcasts, newsletters, games and digital tools of every kind. If it can be opened, it can be discovered.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -534,6 +544,7 @@
     <div class="story">
       <p>We built website after website. Tool after tool. The work was good — and almost nobody ever saw it. Not because the products were weak, but because <strong>promotion was missing</strong>: no money for ads, no traffic, no way to be discovered.</p>
       <p>That is the story of millions of builders around the world. So instead of building one more thing nobody would find, we built the thing every builder actually needs — <strong>a global circle where people discover each other</strong>, and being seen no longer depends on how much money you have.</p>
+      <p><a href="about.html">Read more about why we built GrowTogether</a></p>
     </div>
   </div>
 </section>
@@ -587,16 +598,20 @@
         <p>No. Discovering a few projects is how you take part — it is not a one-for-one trade. Your project enters the shared rotation and is shown to members across the whole circle, fairly and in turn. A few minutes from you; the whole circle as your audience.</p>
       </details>
       <details>
-        <summary>Can I promote an app, a Telegram bot, a YouTube channel, an Instagram profile or a Facebook page?</summary>
-        <p>Yes — that is the point of an all-in-one circle. Websites, SaaS and web apps, mobile apps, Telegram bots and channels, YouTube channels, Instagram profiles, Facebook pages, social profiles, open-source projects, podcasts and newsletters all live in the same circle, and members discover across all of them.</p>
+        <summary>What does &lsquo;discover&rsquo; actually mean?</summary>
+        <p>It depends on the project — but it always means genuinely looking, never a bare click. A website: visit it, and read or try what it offers. A video: watch it properly. A podcast: press play and listen. An app: open it and look around — install it only if you want it. A channel, a server or a profile: open it, look around, and join or follow only if it is genuinely for you. Opening something and closing it a second later is not discovery.</p>
+      </details>
+      <details>
+        <summary>Can I promote an app, a Telegram bot, a YouTube channel, a Discord server, a TikTok account, an Instagram profile or a Facebook page?</summary>
+        <p>Yes — that is the point of an all-in-one circle. Websites, SaaS and web apps, mobile apps, Telegram bots and channels, YouTube channels, Discord servers, TikTok accounts, Instagram profiles, Facebook pages, social profiles, open-source projects, podcasts and newsletters all live in the same circle, and members discover across all of them.</p>
       </details>
       <details>
         <summary>Is it really free? What is the catch?</summary>
-        <p>It is free, and the exchange is the catch — an honest one. Instead of money, you contribute real attention: you genuinely discover other members&rsquo; projects, and the circle discovers yours. There are no plans and no pricing on GrowTogether — the whole circle is free, and nobody can buy priority inside it.</p>
+        <p>It is free, and the exchange is the catch — an honest one. Instead of money, you contribute real attention: you genuinely discover other members&rsquo; projects, and the circle discovers yours. There are no plans and no pricing on GrowTogether — the whole circle is free, and nobody can buy priority inside it. GrowTogether is built and run independently. It costs members nothing, sells no data, and runs no ads. How it sustains itself in the long term will be decided openly, with its members, when the time comes.</p>
       </details>
       <details>
         <summary>Is this a traffic exchange?</summary>
-        <p>No. Traffic exchanges paid people in credits for opening pages without looking — worthless visits, and the model died. GrowTogether rewards genuine discovery and feedback, counts only sessions that pass integrity checks, and never forces anyone to install, like, subscribe or click an ad.</p>
+        <p>No. Traffic exchanges paid people in credits for opening pages without looking — worthless visits, and the model died. GrowTogether is built the opposite way. Every member is a real person — there is no automated traffic and there are no bots. A discovery counts only when it is a genuine session: a real person who actually stayed and looked, with real time spent and real interaction. A tab opened and abandoned counts for nothing. Nobody is ever asked or rewarded to fake engagement — no fake subscribes, no fake likes, no fake installs — and nobody clicks an ad for credit. People visit a project because they choose to; what they do there is theirs. And discovery happens entirely inside the circle: nobody links to anybody, and there are no backlinks in the system.</p>
       </details>
       <details>
         <summary>Will this bring me customers or a Google ranking?</summary>
@@ -604,7 +619,7 @@
       </details>
       <details>
         <summary>When does it open?</summary>
-        <p>First, an invite-only beta — so the loop, the fairness rules and the community are proven with real members before the doors open to the world. Waitlist members enter in order, and members who bring genuine builders through their invite link enter first.</p>
+        <p>First, an invite-only beta — so the loop, the fairness rules and the community are proven with real members before the doors open to the world. The beta opens in waves, and everyone on the waitlist gets in. Members who bring in other real members through their invite link move up the line.</p>
       </details>
     </div>
   </div>
