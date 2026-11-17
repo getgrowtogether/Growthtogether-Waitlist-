@@ -710,5 +710,24 @@ try { var sv = JSON.parse(localStorage.getItem('gt_waitlist') || 'null');
   update();
 })();
 </script>
+<script>
+// Referral forwarding (fix 2026-11-17): share links point at this page with
+// ?ref=gt-xxxx, and join.html reads the code from its own address — carry the
+// code across every join link so the inviter is actually credited. Runs last,
+// after the joined-state script above has matched the plain "join.html" hrefs.
+try {
+  var ref = new URLSearchParams(location.search).get('ref');
+  if (ref && /^gt-[a-z0-9]+$/i.test(ref)){
+    document.querySelectorAll('a[href]').forEach(function(a){
+      var h = a.getAttribute('href');
+      if (h === 'join.html' || h.indexOf('join.html?') === 0 || h.indexOf('join.html#') === 0){
+        var hash = '', base = h, hi = h.indexOf('#');
+        if (hi >= 0){ hash = h.slice(hi); base = h.slice(0, hi); }
+        a.setAttribute('href', base + (base.indexOf('?') >= 0 ? '&' : '?') + 'ref=' + encodeURIComponent(ref) + hash);
+      }
+    });
+  }
+} catch(_){}
+</script>
 </body>
 </html>
