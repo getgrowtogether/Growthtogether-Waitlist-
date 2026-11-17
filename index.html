@@ -18,6 +18,9 @@
 <meta name="twitter:title" content="GrowTogether — Free Promotion for Websites, Apps &amp; Channels">
 <meta name="twitter:description" content="Websites, apps, SaaS, Telegram bots, YouTube, Instagram, Facebook — promote anything, free, in one global circle.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='16' r='6' fill='%23000'/%3E%3Ccircle cx='84' cy='44' r='7' fill='%23000'/%3E%3Ccircle cx='62' cy='82' r='8' fill='%23000'/%3E%3Ccircle cx='21' cy='67' r='9' fill='%23000'/%3E%3Ccircle cx='50' cy='50' r='10' fill='%23000'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Doto:wght@500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,7 +49,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:"Inter","Manrope",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased}
+  body{font-family:"Archivo",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased}
   .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
   .ico{width:26px;height:26px;stroke:var(--black);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
@@ -60,7 +63,6 @@
   .nav nav a:hover{color:var(--black)}
   .btn{display:inline-block;background:var(--black);color:var(--white);font-weight:600;padding:12px 22px;border-radius:999px;text-decoration:none;font-size:14.5px;border:2px solid var(--black);cursor:pointer;font-family:inherit}
   .btn.white{background:var(--white);color:var(--black)}
-  .btn:hover{transform:translateY(-1px)}
   @media(max-width:760px){.nav nav{display:none}}
 
   /* hero */
@@ -70,7 +72,7 @@
   @media(max-width:920px){.hero .wrap{grid-template-columns:1fr}}
   .kicker{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--black);border-radius:999px;padding:7px 15px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;background:var(--white)}
   .kicker i{width:8px;height:8px;border-radius:50%;background:var(--black);display:inline-block}
-  .hero h1{font-size:clamp(40px,5.6vw,64px);line-height:1.04;letter-spacing:-.03em;font-weight:600;margin:24px 0 18px}
+  .hero h1{font-size:clamp(44px,13vw,96px);line-height:1.0;letter-spacing:-.03em;font-weight:800;margin:24px 0 18px}
   .hero h1 .out{color:transparent;-webkit-text-stroke:2px var(--black)}
   .hero p.lead{font-size:17.5px;color:var(--grey);line-height:1.62;max-width:520px}
   .hero p.lead strong{color:var(--black)}
@@ -133,7 +135,6 @@
   .mrow{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);margin-bottom:12px}
   .mtrack{display:flex;width:max-content;animation:mscroll 34s linear infinite}
   .mtrack.rev{animation:mscrollr 40s linear infinite}
-  .mrow:hover .mtrack{animation-play-state:paused}
   @keyframes mscroll{to{transform:translateX(-50%)}}
   @keyframes mscrollr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
   .mcard{display:flex;align-items:center;gap:10px;border:1.5px solid #000;border-radius:14px;padding:12px 16px;margin-right:12px;background:#fff;font-weight:650;font-size:14px;white-space:nowrap;box-shadow:0 5px 12px rgba(0,0,0,.07)}
@@ -147,7 +148,7 @@
   /* sections */
   section{padding:86px 0}
   .label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mid);font-weight:600;text-align:center}
-  h2{font-size:clamp(30px,4.4vw,44px);letter-spacing:-.025em;font-weight:650;text-align:center;margin:12px auto 14px;max-width:780px;line-height:1.13}
+  h2{font-size:clamp(32px,5vw,46px);letter-spacing:-.025em;font-weight:750;text-align:center;margin:12px auto 14px;max-width:780px;line-height:1.1}
   .sub{text-align:center;color:var(--grey);max-width:640px;margin:0 auto;line-height:1.65;font-size:16px}
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
   @media(max-width:860px){.grid3{grid-template-columns:1fr}}
@@ -190,10 +191,6 @@
 
   .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;align-items:center}
   .btn.big{padding:16px 32px;font-size:16px;border-radius:999px}
-  .btn.shine{background:linear-gradient(180deg,#3d3d3d 0%,#000 55%);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -1px 0 rgba(0,0,0,.6),0 12px 26px rgba(0,0,0,.20);position:relative;overflow:hidden}
-  .btn.shine::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s ease}
-  .btn.shine:hover::after{left:130%}
-  .btn.white.shine{background:linear-gradient(180deg,#ffffff 0%,#f0f0f0 55%);color:#000;box-shadow:inset 0 1px 0 #fff,0 12px 26px rgba(0,0,0,.12)}
   .fineprint{margin-top:15px;font-size:13px;color:var(--mid)}
   h3{font-weight:600}
   .hero{background:radial-gradient(900px 480px at 50% -120px,#f4f4f4 0%,#ffffff 60%)}
@@ -202,16 +199,114 @@
   section{padding:62px 0}
   .hero .wrap{padding:56px 22px 62px}
   .grid3,.grid2{gap:14px;margin-top:36px}
-  .card{padding:23px;transition:transform .18s ease,border-color .18s ease}
-  .card:hover{transform:translateY(-3px)}
+  .card{padding:23px;transition:transform .18s cubic-bezier(0.23,1,0.32,1),border-color .18s cubic-bezier(0.23,1,0.32,1)}
   .rules{margin-top:36px;padding:23px}
   .band{padding:62px 0}
   .faq{margin-top:32px}
   details{padding:16px 4px}
   footer{padding:32px 0}
-  .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s cubic-bezier(0.23,1,0.32,1),transform .55s cubic-bezier(0.23,1,0.32,1)}
   .reveal.in{opacity:1;transform:none}
   @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}.card{transition:none}}
+  /* Design round 1 (2026-11-17) — report changes #1, #2, #5, #11, #13. Black & white only. */
+  section{border-top:1px solid rgba(0,0,0,.07)}
+  .hero{border-top:0}
+  #how{background:#000;color:#fff;border-top-color:rgba(255,255,255,.12)}
+  #how .label{color:rgba(255,255,255,.55)}
+  #how h2{color:#fff}
+  #how .sub{color:rgba(255,255,255,.7)}
+  #how .card{background:#0d0d0d;border-color:rgba(255,255,255,.14)}
+  #how .card:hover{border-color:rgba(255,255,255,.45)}
+  #how .card h3{color:#fff}
+  #how .card p{color:rgba(255,255,255,.65)}
+  #how .card .num{background:#fff;color:#000}
+  footer{background:#000;color:rgba(255,255,255,.65);border-top:3px solid #000}
+  footer .logo{color:#fff}
+  footer .logo svg circle{fill:#fff}
+  footer .footbrand p{color:rgba(255,255,255,.65)}
+  footer .footcol h4{color:#fff}
+  footer .footcol a{color:rgba(255,255,255,.65)}
+  footer .footcol a:hover{color:#fff}
+  footer .footbar{border-top-color:rgba(255,255,255,.14);color:rgba(255,255,255,.55)}
+  .btn:active{transform:scale(.97)}
+  .card{transition:transform .18s cubic-bezier(0.23,1,0.32,1),border-color .18s cubic-bezier(0.23,1,0.32,1)}
+  /* Sticky bottom CTA — mobile only; desktop already has the header CTA. */
+  .stickycta{position:fixed;left:0;right:0;bottom:0;z-index:70;background:#000;padding:8px 14px calc(8px + env(safe-area-inset-bottom));display:none;transform:translateY(110%);transition:transform .18s cubic-bezier(0.23,1,0.32,1)}
+  .stickycta.show{transform:translateY(0)}
+  .stickycta .btn{display:block;text-align:center;width:100%;padding:13px;font-size:16px;background:#fff;color:#000;border-color:#fff}
+  body.sticky-on{padding-bottom:64px}
+  @media(max-width:720px){.stickycta{display:block}}
+  @media (prefers-reduced-motion: reduce){.stickycta{transition:none}}
+
+  /* ============ DESIGN EXPERIMENT v2 (2026-11-17) ============
+     Research changes #3 (three-voice type), #4a/#4b (Doto moments + growing
+     dots), #8 (spec table), #11 (hairlines + crosshairs), #12 (grain),
+     #13 (motion pass). Black & white only. */
+  section{position:relative}
+  /* grain — static SVG feTurbulence tile as a data-URI, never a file */
+  body::after{content:"";position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E")}
+  /* crosshair marks at section corners (Vercel-style, subtle) */
+  .xh{position:absolute;top:12px;font-family:"Space Mono",monospace;font-size:15px;font-weight:400;line-height:1;color:rgba(0,0,0,.35);z-index:3}
+  .xh.l{left:14px}.xh.r{right:14px}
+  #how .xh{color:rgba(255,255,255,.45)}
+  /* voice 3 — mono labels */
+  .label{font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.14em}
+  .kicker{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.12em;font-weight:700}
+  .wall .pill{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.05em}
+  .footcol h4{font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.12em}
+  .fineprint{font-size:12.5px}
+  /* voice 2 — Doto dot moments: the step numbers in the black section */
+  #how .card .num{font-family:"Doto",monospace;font-size:52px;font-weight:700;line-height:1;background:none;color:#fff;width:auto;height:auto;border-radius:0;justify-content:flex-start;margin-bottom:12px}
+  /* spec table — project types as hairline rows, no boxes, no shadows */
+  .speclist{margin-top:40px;border-top:1px solid rgba(0,0,0,.12)}
+  .trow{display:flex;align-items:baseline;gap:18px;padding:20px 6px;border-bottom:1px solid rgba(0,0,0,.12);text-decoration:none;color:var(--ink);transition:background .18s cubic-bezier(0.23,1,0.32,1)}
+  .tnum{font-family:"Space Mono",monospace;font-size:12px;color:var(--mid);flex:none}
+  .tname{font-size:21px;font-weight:700;letter-spacing:-.02em;flex:0 0 248px}
+  .tdesc{color:var(--grey);font-size:15px;line-height:1.55;flex:1}
+  .tarrow{font-size:19px;font-weight:700;flex:none;transition:transform .18s cubic-bezier(0.23,1,0.32,1)}
+  @media(max-width:720px){
+    .trow{flex-wrap:wrap;gap:3px 12px;padding:17px 4px}
+    .tname{flex:1 1 auto;font-size:19px}
+    .tdesc{flex:1 1 100%;order:3;font-size:14.5px}
+    .tarrow{order:2}
+  }
+  /* hover effects only where a real pointer exists */
+  @media (hover:hover) and (pointer:fine){
+    .btn:hover{transform:translateY(-1px)}
+    .card:hover{transform:translateY(-3px)}
+    .mrow:hover .mtrack{animation-play-state:paused}
+    .trow:hover{background:var(--soft)}
+    .trow:hover .tarrow{transform:translateX(4px)}
+  }
+
+  /* ============ AIR PASS (2026-11-17, founder: "tight feel") ============
+     Same design, more breathing room: wider section air, looser lines,
+     calmer grain. Nothing else changes. */
+  section{padding:100px 0}
+  .hero .wrap{padding:80px 22px 92px}
+  .hero h1{line-height:1.07;letter-spacing:-.022em}
+  .hero p.lead{line-height:1.72}
+  h2{line-height:1.16}
+  .sub{line-height:1.75}
+  .grid3,.grid2{gap:20px;margin-top:54px}
+  .card{padding:31px}
+  .card p{line-height:1.7}
+  .rules{gap:20px;margin-top:54px}
+  .rule{padding:31px}
+  .band{padding:78px 0}
+  details{padding:23px 4px}
+  .cta-row{margin-top:40px}
+  .speclist{margin-top:48px}
+  .trow{padding:27px 6px}
+  .footgrid{padding-bottom:50px}
+  body::after{opacity:.02}
+  @media(max-width:720px){
+    section{padding:76px 0}
+    .hero .wrap{padding:60px 22px 72px}
+    .trow{padding:23px 4px}
+    .card{padding:26px}
+    .rule{padding:26px}
+  }
 </style>
 </head>
 <body>
@@ -229,7 +324,7 @@
       <a href="#story">Why we built it</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn shine" href="join.html">Join free</a>
+    <a class="btn" href="join.html">Join free</a>
   </div>
 </header>
 
@@ -241,7 +336,7 @@
       <h1>Free promotion for <span class="out">everything</span> you create.</h1>
       <p class="lead">A website, an app, a SaaS, a Telegram bot, a YouTube channel, an Instagram profile, a Facebook page — <strong>whatever you have built, this circle gets it discovered.</strong> You discover other members&rsquo; projects; real people discover yours back. The promotion the world pays money for — here, it is free. Forever.</p>
       <div class="cta-row">
-        <a class="btn big shine" href="join.html">Join the waitlist — free</a>
+        <a class="btn big" href="join.html">Join the waitlist — free</a>
         <a class="btn big white" href="#how">See how it works</a>
       </div>
       <p class="fineprint">Takes less than a minute &middot; No card &middot; No fees, ever &middot; Your own invite link the moment you join</p>
@@ -290,6 +385,7 @@
 </div>
 
 <section id="how">
+  <span class="xh l" aria-hidden="true">+</span><span class="xh r" aria-hidden="true">+</span>
   <div class="wrap">
     <p class="label">How it works</p>
     <h2>Discover five projects.<br>The circle discovers yours.</h2>
@@ -355,56 +451,21 @@
 </section>
 
 <section id="types">
+  <span class="xh l" aria-hidden="true">+</span><span class="xh r" aria-hidden="true">+</span>
   <div class="wrap">
     <p class="label">All in one platform</p>
     <h2>Whatever it is — it belongs in the circle</h2>
     <p class="sub">Members look at each other&rsquo;s projects across every platform. If people can open it, the circle can discover it.</p>
-    <div class="grid3">
-      <div class="card">
-        <div class="icob"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg></div>
-        <h3>Websites</h3>
-        <p>Business sites, portfolios, blogs, landing pages and web tools that deserve more than silence.</p>
-      </div>
-      <div class="card">
-        <div class="icob"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01M8 21h8"/></svg></div>
-        <h3>SaaS &amp; web apps</h3>
-        <p>Products that need their first users, honest trials and real feedback loops.</p>
-      </div>
-      <div class="card">
-        <div class="icob"><svg class="ico" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></div>
-        <h3>Mobile apps</h3>
-        <p>New apps that refuse to stay buried under the app-store charts.</p>
-      </div>
-      <div class="card">
-        <div class="icob"><svg class="ico" viewBox="0 0 24 24"><path d="M21 3L10.5 13.5M21 3l-6.8 18-3.7-7.5L3 9.8 21 3z"/></svg></div>
-        <h3>Telegram bots &amp; channels</h3>
-        <p>Bots, mini apps and channels that platform search never shows to anyone.</p>
-      </div>
-      <div class="card">
-        <div class="icob"><svg class="ico" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="#000" stroke="none"/></svg></div>
-        <h3>YouTube channels</h3>
-        <p>Creators who want real viewers discovering real videos — never fake views, never forced subscriptions.</p>
-      </div>
-      <div class="card">
-        <div class="icob"><svg class="ico" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.2 6.8h.01"/></svg></div>
-        <h3>Instagram profiles</h3>
-        <p>Creator and brand profiles that grow through genuine discovery, not follow-for-follow games.</p>
-      </div>
-      <div class="card">
-        <div class="icob"><svg class="ico" viewBox="0 0 24 24"><path d="M15.5 3.5H14a4 4 0 0 0-4 4v2.5H7.5v3.5H10v7h3.8v-7h2.9l.6-3.5h-3.5V7.8c0-.7.4-1 1-1h2.2z"/></svg></div>
-        <h3>Facebook pages</h3>
-        <p>Pages and communities that deserve an audience beyond the people who already know them.</p>
-      </div>
-      <div class="card">
-        <div class="icob"><svg class="ico" viewBox="0 0 24 24"><circle cx="8" cy="7" r="3.2"/><path d="M2.5 20c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M16 4.5a3.2 3.2 0 0 1 0 6M17.5 15.3c2 .6 3.5 2.2 4 4.7"/></svg></div>
-        <h3>Social profiles</h3>
-        <p>TikTok, X, LinkedIn and every profile where your work lives and waits to be found.</p>
-      </div>
-      <div class="card">
-        <div class="icob"><svg class="ico" viewBox="0 0 24 24"><path d="M8.5 8L4 12l4.5 4M15.5 8L20 12l-4.5 4M13.5 5l-3 14"/></svg></div>
-        <h3>Open source, podcasts &amp; more</h3>
-        <p>Repositories, podcasts, newsletters, games and digital tools of every kind. If it can be opened, it can be discovered.</p>
-      </div>
+    <div class="speclist">
+      <a class="trow" href="join.html"><span class="tnum">01</span><span class="tname">Websites</span><span class="tdesc">Business sites, portfolios, blogs, landing pages and web tools that deserve more than silence.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
+      <a class="trow" href="join.html"><span class="tnum">02</span><span class="tname">SaaS &amp; web apps</span><span class="tdesc">Products that need their first users, honest trials and real feedback loops.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
+      <a class="trow" href="join.html"><span class="tnum">03</span><span class="tname">Mobile apps</span><span class="tdesc">New apps that refuse to stay buried under the app-store charts.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
+      <a class="trow" href="join.html"><span class="tnum">04</span><span class="tname">Telegram bots &amp; channels</span><span class="tdesc">Bots, mini apps and channels that platform search never shows to anyone.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
+      <a class="trow" href="join.html"><span class="tnum">05</span><span class="tname">YouTube channels</span><span class="tdesc">Creators who want real viewers discovering real videos — never fake views, never forced subscriptions.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
+      <a class="trow" href="join.html"><span class="tnum">06</span><span class="tname">Instagram profiles</span><span class="tdesc">Creator and brand profiles that grow through genuine discovery, not follow-for-follow games.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
+      <a class="trow" href="join.html"><span class="tnum">07</span><span class="tname">Facebook pages</span><span class="tdesc">Pages and communities that deserve an audience beyond the people who already know them.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
+      <a class="trow" href="join.html"><span class="tnum">08</span><span class="tname">Social profiles</span><span class="tdesc">TikTok, X, LinkedIn and every profile where your work lives and waits to be found.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
+      <a class="trow" href="join.html"><span class="tnum">09</span><span class="tname">Open source, podcasts &amp; more</span><span class="tdesc">Repositories, podcasts, newsletters, games and digital tools of every kind. If it can be opened, it can be discovered.</span><span class="tarrow" aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -455,6 +516,7 @@
 </section>
 
 <section id="faq" style="padding-top:10px">
+  <span class="xh l" aria-hidden="true">+</span><span class="xh r" aria-hidden="true">+</span>
   <div class="wrap">
     <p class="label">Questions</p>
     <h2>Free promotion, answered honestly</h2>
@@ -513,6 +575,10 @@
         <a href="promote-instagram-page-free.html">Promote an Instagram page</a>
         <a href="promote-facebook-page-free.html">Promote a Facebook page</a>
         <a href="cross-promotion.html">Cross-promotion, explained</a>
+        <a href="about.html">About GrowTogether</a>
+        <a href="how-ranking-works.html">How ranking works</a>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="terms.html">Terms of use</a>
         <a href="join.html">Join the waitlist</a>
       </div>
     </div>
@@ -523,46 +589,75 @@
   </div>
 </footer>
 
+<div class="stickycta" id="stickycta"><a class="btn" href="join.html">Join the waitlist — free</a></div>
+
 <script>
-// Animated black dot field on bright white (hero) — light canvas, respects reduced motion.
+// Hero dot field v2 — dots GROW and pulse in slow waves on the growing-dots
+// logo rhythm (research change #4b). Capped count + DPR, pauses off-screen
+// and when the tab is hidden; reduced motion gets one static frame.
 (function(){
   var c = document.getElementById('dots'); if(!c) return;
-  var ctx = c.getContext('2d'), W, H, dots = [], raf;
+  var ctx = c.getContext('2d'), W, H, dots = [], raf = null, running = false, visible = true;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function size(){
-    W = c.width = c.offsetWidth; H = c.height = c.offsetHeight;
-    var n = Math.min(120, Math.floor(W * H / 15000)); dots = [];
+    var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    W = c.offsetWidth; H = c.offsetHeight;
+    c.width = Math.round(W * dpr); c.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.min(110, Math.floor(W * H / 16000)); dots = [];
     for (var i = 0; i < n; i++) dots.push({
       x: Math.random() * W, y: Math.random() * H,
-      r: Math.random() * 1.9 + 0.7,
-      vx: (Math.random() - .5) * .16, vy: (Math.random() - .5) * .16,
-      a: Math.random() * .22 + .07
+      base: (Math.random() * 1.8 + 0.8) * (1.25 - (Math.random() * H / Math.max(H, 1)) * 0.35),
+      ph: Math.random() * 6.2832,
+      sp: Math.random() * 0.35 + 0.3,
+      vx: (Math.random() - .5) * .05, vy: (Math.random() - .5) * .05
     });
   }
-  function draw(){
+  function frame(t){
     ctx.clearRect(0, 0, W, H);
+    var time = t * 0.001;
     for (var i = 0; i < dots.length; i++){
       var d = dots[i];
-      ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, 6.2832);
-      ctx.fillStyle = 'rgba(0,0,0,' + d.a + ')'; ctx.fill();
-      if (!reduce){
-        d.x += d.vx; d.y += d.vy;
-        if (d.x < 0 || d.x > W) d.vx *= -1;
-        if (d.y < 0 || d.y > H) d.vy *= -1;
-      }
+      var pulse = (Math.sin(time * d.sp + d.ph) + 1) / 2;      // 0..1 slow wave
+      var r = d.base * (0.3 + 0.85 * pulse);                    // grow + shrink
+      var a = 0.05 + 0.21 * pulse;
+      ctx.beginPath(); ctx.arc(d.x, d.y, r, 0, 6.2832);
+      ctx.fillStyle = 'rgba(0,0,0,' + a.toFixed(3) + ')'; ctx.fill();
+      d.x += d.vx; d.y += d.vy;
+      if (d.x < -4) d.x = W + 4; if (d.x > W + 4) d.x = -4;
+      if (d.y < -4) d.y = H + 4; if (d.y > H + 4) d.y = -4;
     }
-    if (!reduce) raf = requestAnimationFrame(draw);
+    if (running) raf = requestAnimationFrame(frame);
   }
-  size(); draw();
-  window.addEventListener('resize', function(){ cancelAnimationFrame(raf); size(); draw(); });
+  function start(){ if (reduce || running) return; running = true; raf = requestAnimationFrame(frame); }
+  function stop(){ running = false; if (raf) cancelAnimationFrame(raf); raf = null; }
+  function gate(){ if (visible && !document.hidden) start(); else stop(); }
+  function drawStatic(){ // one static frame, dots at mid-growth
+    ctx.clearRect(0, 0, W, H);
+    dots.forEach(function(d){
+      ctx.beginPath(); ctx.arc(d.x, d.y, d.base * 0.7, 0, 6.2832);
+      ctx.fillStyle = 'rgba(0,0,0,0.14)'; ctx.fill();
+    });
+  }
+  size();
+  if (reduce){ drawStatic(); } else {
+    if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){ visible = en[0].isIntersecting; gate(); }, { threshold: 0 }).observe(c);
+    }
+    document.addEventListener('visibilitychange', gate);
+    gate();
+  }
+  var rz; window.addEventListener('resize', function(){ clearTimeout(rz); rz = setTimeout(function(){ stop(); size(); if (reduce) drawStatic(); else gate(); }, 200); });
 })();
 
 </script>
 
 <script>
-// Scroll reveal — sections rise in gently as they arrive.
+// Scroll reveal — sections rise in gently as they arrive; cards and spec rows
+// follow with a short stagger (40–80ms, Kowalski motion pass).
 (function(){
   var els = document.querySelectorAll('section .wrap, .band .wrap, footer .wrap');
+  var items = document.querySelectorAll('.grid3 .card, .rules .rule, .speclist .trow');
   if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     els.forEach(function(e){ e.classList.add('in'); }); return;
   }
@@ -571,6 +666,13 @@
     en.forEach(function(x){ if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } });
   }, { threshold: .1 });
   els.forEach(function(e){ io.observe(e); });
+  var seen = {};
+  items.forEach(function(e){
+    var p = e.parentNode, key = p.className;
+    seen[key] = (seen[key] || 0) + 1;
+    e.style.transitionDelay = ((seen[key] - 1) % 3) * 60 + 'ms';
+    e.classList.add('reveal'); io.observe(e);
+  });
 })();
 </script>
 <script>
@@ -584,6 +686,27 @@ try { var sv = JSON.parse(localStorage.getItem('gt_waitlist') || 'null');
     a.textContent = a.classList.contains('big') ? "You're in — your invite link" : 'My invite link';
   }); }
 } catch(_){}
+</script>
+<script>
+// Sticky bottom CTA (design round 1, change #5): appears only after the hero
+// scrolls away, hides while a form field is focused (keyboard open).
+(function(){
+  var bar = document.getElementById('stickycta');
+  var hero = document.querySelector('.hero');
+  if (!bar || !hero || window.matchMedia('(min-width:721px)').matches) return;
+  var focused = false;
+  function update(){
+    var show = !focused && window.scrollY > hero.offsetHeight - 80;
+    bar.classList.toggle('show', show);
+    document.body.classList.toggle('sticky-on', show);
+  }
+  document.addEventListener('focusin', function(e){
+    if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)){ focused = true; update(); }
+  });
+  document.addEventListener('focusout', function(){ focused = false; update(); });
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
 </script>
 </body>
 </html>
