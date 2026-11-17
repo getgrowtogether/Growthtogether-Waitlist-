@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How GrowTogether Ranking Works — The Fair Rotation</title>
+<meta name="description" content="How GrowTogether decides what gets discovered: one fair rotation, the same rules for everyone. No paid priority, no fake numbers.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GrowTogether">
+<meta property="og:title" content="How Ranking Works | GrowTogether">
+<meta property="og:description" content="Give discovery, get discovery. The rotation is the ranking — and nobody can buy a place in it.">
+<meta property="og:image" content="https://growtogether-waitlist.onrender.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://growtogether-waitlist.onrender.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='16' r='6' fill='%23000'/%3E%3Ccircle cx='84' cy='44' r='7' fill='%23000'/%3E%3Ccircle cx='62' cy='82' r='8' fill='%23000'/%3E%3Ccircle cx='21' cy='67' r='9' fill='%23000'/%3E%3Ccircle cx='50' cy='50' r='10' fill='%23000'/%3E%3C/svg%3E">
+
+<style>
+  :root{--black:#000;--ink:#0a0a0a;--white:#fff;--line:#e7e7e7;--grey:#5c5c5c;--mid:#666666;--soft:#f6f6f6}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Inter","Manrope",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .narrow{max-width:800px;margin:0 auto;padding:0 22px}
+  header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:-.02em;font-size:20px;text-decoration:none;color:var(--black)}
+  .logo svg{width:30px;height:30px}
+  .nav nav{display:flex;gap:26px;font-size:14.5px;color:var(--grey);font-weight:550}
+  .nav nav a{text-decoration:none}
+  .nav nav a:hover{color:var(--black)}
+  @media(max-width:760px){.nav nav{display:none}}
+  .btn{display:inline-block;background:linear-gradient(180deg,#3d3d3d 0%,#000 55%);color:#fff;font-weight:600;padding:12px 24px;border-radius:999px;text-decoration:none;font-size:14.5px;border:2px solid #000;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 10px 22px rgba(0,0,0,.16);position:relative;overflow:hidden}
+  .btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s ease}
+  .btn:hover::after{left:130%}
+  .btn.big{padding:16px 32px;font-size:16px}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(900px 460px at 50% -120px,#f4f4f4 0%,#fff 60%)}
+  #dots{position:absolute;inset:0;width:100%;height:100%}
+  .hero .narrow{position:relative;z-index:2;padding:64px 22px 58px;text-align:center}
+  .kicker{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--black);border-radius:999px;padding:7px 15px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;background:#fff}
+  .kicker i{width:8px;height:8px;border-radius:50%;background:var(--black)}
+  h1{font-size:clamp(33px,5vw,54px);line-height:1.09;letter-spacing:-.028em;font-weight:700;margin:22px 0 16px}
+  h1 .out{color:transparent;-webkit-text-stroke:2px var(--black)}
+  .lead{font-size:17.5px;color:var(--grey);line-height:1.62;max-width:640px;margin:0 auto}
+  .lead strong{color:var(--black)}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+  .fine{margin-top:14px;font-size:13px;color:var(--mid)}
+  section{padding:62px 0}
+  .label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mid);font-weight:600;text-align:center}
+  h2{font-size:clamp(27px,4vw,40px);letter-spacing:-.022em;font-weight:650;text-align:center;margin:11px auto 13px;max-width:760px;line-height:1.15}
+  h3{font-weight:600}
+  .sub{text-align:center;color:var(--grey);max-width:620px;margin:0 auto;line-height:1.62;font-size:15.5px}
+  .ways{max-width:800px;margin:38px auto 0}
+  .way{display:flex;gap:18px;padding:20px 4px;border-bottom:1px solid var(--line)}
+  .way .n{flex:none;width:38px;height:38px;border-radius:50%;border:2px solid var(--black);display:flex;align-items:center;justify-content:center;font-weight:650;font-size:15px;margin-top:2px}
+  .way h3{font-size:17.5px;margin-bottom:5px}
+  .way p{color:var(--grey);line-height:1.6;font-size:15px}
+  .way p b{color:var(--ink)}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+  @media(max-width:860px){.grid3{grid-template-columns:1fr}}
+  .card{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:23px;transition:transform .18s ease,border-color .18s ease}
+  .card:hover{border-color:var(--black);transform:translateY(-3px)}
+  .card .num{width:40px;height:40px;border-radius:50%;background:var(--black);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:650;font-size:16px;margin-bottom:13px}
+  .card h3{font-size:17.5px;margin-bottom:7px}
+  .card p{color:var(--grey);line-height:1.6;font-size:14.5px}
+  .soft{background:var(--soft)}
+  .noplans{max-width:800px;margin:0 auto;text-align:center;border:2px solid var(--black);border-radius:20px;padding:34px 30px;background:#fff;box-shadow:10px 10px 0 var(--black)}
+  .noplans h2{margin-top:0}
+  .noplans p{color:var(--grey);line-height:1.68;font-size:16px;max-width:620px;margin:0 auto}
+  .noplans p strong{color:var(--black)}
+  .faq{max-width:780px;margin:34px auto 0}
+  details{border-bottom:1px solid var(--line);padding:17px 4px}
+  summary{font-weight:600;cursor:pointer;font-size:15.5px}
+  details p{color:var(--grey);line-height:1.62;margin-top:8px;font-size:14.5px}
+  .ctaband{text-align:center}
+  .guides{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .guides a{border:1.5px solid var(--black);border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;color:var(--black);text-decoration:none;background:#fff}
+  .guides a:hover{background:var(--black);color:#fff}
+  footer{border-top:2px solid var(--black);padding:34px 0;font-size:14px;color:var(--grey)}
+  footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+  footer a{color:var(--black);font-weight:600;text-decoration:none}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="GrowTogether home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="34" fill="none" stroke="#000" stroke-opacity=".14" stroke-width="3"/><circle cx="50" cy="16" r="5" fill="#000"/><circle cx="71.9" cy="24" r="5.7" fill="#000"/><circle cx="83.5" cy="44.1" r="6.4" fill="#000"/><circle cx="79.4" cy="67" r="7" fill="#000"/><circle cx="61.6" cy="82" r="7.7" fill="#000"/><circle cx="38.4" cy="82" r="8.4" fill="#000"/><circle cx="20.6" cy="67" r="9" fill="#000"/><circle cx="16.5" cy="44.1" r="9.7" fill="#000"/><circle cx="28.1" cy="24" r="10.4" fill="#000"/><circle cx="50" cy="50" r="11" fill="#000"/></svg>
+      GrowTogether
+    </a>
+    <nav>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#types">All platforms</a>
+      <a href="free-website-promotion.html">Website guide</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <a class="btn" href="join.html">Join free</a>
+  </div>
+</header>
+
+<div class="hero">
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="narrow">
+    <span class="kicker"><i></i>How ranking works</span>
+    <h1>How the circle decides <span class="out">what gets discovered.</span></h1>
+    <p class="lead">Ranking here is not a mystery score and not an auction. It is <strong>one fair loop</strong> — the same for a worldwide brand and a day-one project.</p>
+    <div class="cta-row">
+      <a class="btn big" href="join.html">Join the waitlist — free</a>
+    </div>
+    <p class="fine">Same rules for everyone · No paid priority · Numbers labelled honestly</p>
+  </div>
+</div>
+
+
+<section>
+  <div class="wrap">
+    <p class="label">The loop</p>
+    <h2>Give discovery. Get discovery.</h2>
+    <p class="sub">Ranking on GrowTogether is not a mystery score and not an auction. It is one fair loop, the same for a worldwide brand and a day-one project.</p>
+    <div class="ways">
+      <div class="way"><div class="n">1</div><div>
+        <h3>Submit your project — and it is reviewed first</h3>
+        <p>Every listing passes a safety and quality review before it appears: is it real, does it work, is it what it claims to be? Listings that are deceptive, copied, illegal or harmful are refused. A project that passes enters the rotation; a project that fails is told why.</p>
+      </div></div>
+      <div class="way"><div class="n">2</div><div>
+        <h3>Discover five projects from other members</h3>
+        <p>You are shown five projects, matched to what you care about. Open them, try them, and leave honest feedback when you have something real to say. Genuine discovery is what earns credits — opening a page and closing it in a second is not discovery.</p>
+      </div></div>
+      <div class="way"><div class="n">3</div><div>
+        <h3>Your credits put your project in the rotation</h3>
+        <p>Credits earned by discovering others move your project into the fair rotation, where it is shown to members around the world. Every approved project gets its turn — the rotation is the ranking.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <p class="label">The rules of the rotation</p>
+    <h2>Fair means the same rules for everyone</h2>
+    <div class="ways">
+      <div class="way"><div class="n">1</div><div>
+        <h3>New projects get a turn</h3>
+        <p>A project does not need an audience, reviews or history to be shown. Every approved listing enters the rotation — being new is not a penalty.</p>
+      </div></div>
+      <div class="way"><div class="n">2</div><div>
+        <h3>Matching is by fit, not by size</h3>
+        <p>Projects are shown to members whose interests fit them — a project for creators is shown to creators, not to everyone at random. A relevant audience that stays is worth more than a large audience that bounces.</p>
+      </div></div>
+      <div class="way"><div class="n">3</div><div>
+        <h3>Nobody can buy a place in the rotation</h3>
+        <p>There is no paid priority, no boosted listing and no way to pay for a better position — the whole platform is free, and paid priority inside the free rotation will never be sold.</p>
+      </div></div>
+      <div class="way"><div class="n">4</div><div>
+        <h3>Invite links earn earlier beta access — never credits</h3>
+        <p>Bringing genuine builders through your invite link moves you earlier into the beta. It never earns discovery credits and never moves your project in the rotation. Invites are for people, not for position.</p>
+      </div></div>
+      <div class="way"><div class="n">5</div><div>
+        <h3>Farming is removed, not rewarded</h3>
+        <p>Bots, auto-surfing, fake accounts, tabs left open and click rings are filtered out by integrity checks. Sessions that fail the checks are not counted, and accounts that farm are removed from the circle.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Honest numbers</p>
+    <h2>Every number says exactly what it is</h2>
+    <p class="sub">Old traffic exchanges died because their counters lied. On GrowTogether, three numbers are counted separately and labelled as what they are — so a number on your dashboard means exactly what it says, and nothing more.</p>
+    <div class="grid3">
+      <div class="card">
+        <div class="num">1</div>
+        <h3>Card views</h3>
+        <p>How many times your project card was shown to a member. A view is not a visit — it only means someone saw it.</p>
+      </div>
+      <div class="card">
+        <div class="num">2</div>
+        <h3>Clicks</h3>
+        <p>How many members opened your project. A click is not a customer — it only means someone chose to look.</p>
+      </div>
+      <div class="card">
+        <div class="num">3</div>
+        <h3>Genuine sessions</h3>
+        <p>Visits that passed the integrity checks — a real person who stayed and looked. Only these count towards discovery credit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="noplans">
+      <p class="label">What ranking never promises</p>
+      <h2>No honest platform can promise customers</h2>
+      <p>Ranking in the circle guarantees one thing: <strong>real people discovering your project, and a fair chance to be found</strong>. It does not promise customers, sales, signups, a Google ranking or viral reach — and any platform that promises those things for free is not telling you the truth. What your project does with the chance is yours.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Questions</p>
+    <h2>Ranking, answered plainly</h2>
+    <div class="faq">
+      <details><summary>Does a bigger project rank higher than mine?</summary>
+      <p>No. The rotation gives every approved project its turn, and matching is by fit, not by size. A day-one project and a worldwide brand follow exactly the same rule: give discovery, get discovery.</p></details>
+      <details><summary>Can I pay to be shown first?</summary>
+      <p>No — there is nothing to pay for. GrowTogether has no plans and no pricing, and paid priority inside the free rotation will never be sold.</p></details>
+      <details><summary>What happens if someone farms credits?</summary>
+      <p>Their sessions fail the integrity checks and are not counted. Accounts that farm — bots, fake accounts, auto-surfing — are removed from the circle.</p></details>
+      <details><summary>Do invite links help my ranking?</summary>
+      <p>No. Invite links only move you earlier into the beta. They never earn discovery credits and never change your place in the rotation.</p></details>
+      <details><summary>Why was my project refused in review?</summary>
+      <p>Because it failed the safety or quality review — for example it did not work, was not what it claimed to be, was copied from someone else, or broke the rules in the Terms. Refused listings are told the reason, and can be fixed and submitted again.</p></details>
+    </div>
+  </div>
+</section>
+
+
+<section style="padding-top:10px"><div class="wrap"><p class="sub"><a href="about.html" style="color:#000;font-weight:600">About</a> &middot; <a href="how-ranking-works.html" style="color:#000;font-weight:600">How ranking works</a> &middot; <a href="privacy.html" style="color:#000;font-weight:600">Privacy</a> &middot; <a href="terms.html" style="color:#000;font-weight:600">Terms</a></p></div></section>
+
+<section class="soft ctaband">
+  <div class="wrap">
+    <p class="label">The circle is forming</p>
+    <h2>Your project is next</h2>
+    <p class="sub">Join the waitlist, get your personal invite link, and bring your people with you. The members who bring genuine builders enter the beta first.</p>
+    <div class="cta-row">
+      <a class="btn big" href="join.html">Join the waitlist — free</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="index.html" style="font-size:19px">
+      <svg viewBox="0 0 100 100" width="27" height="27" aria-hidden="true"><circle cx="50" cy="16" r="5" fill="#000"/><circle cx="71.9" cy="24" r="5.7" fill="#000"/><circle cx="83.5" cy="44.1" r="6.4" fill="#000"/><circle cx="79.4" cy="67" r="7" fill="#000"/><circle cx="61.6" cy="82" r="7.7" fill="#000"/><circle cx="38.4" cy="82" r="8.4" fill="#000"/><circle cx="20.6" cy="67" r="9" fill="#000"/><circle cx="16.5" cy="44.1" r="9.7" fill="#000"/><circle cx="28.1" cy="24" r="10.4" fill="#000"/><circle cx="50" cy="50" r="11" fill="#000"/></svg>
+      GrowTogether
+    </a>
+    <span>Grow Together. Promote Together.</span>
+    <span>© 2026 GrowTogether — the global mutual-discovery circle.</span>
+  </div>
+</footer>
+
+<script>
+// Animated black dot field (hero) — light canvas, respects reduced motion.
+(function(){
+  var c = document.getElementById('dots'); if(!c) return;
+  var ctx = c.getContext('2d'), W, H, dots = [], raf;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){
+    W = c.width = c.offsetWidth; H = c.height = c.offsetHeight;
+    var n = Math.min(110, Math.floor(W * H / 16000)); dots = [];
+    for (var i = 0; i < n; i++) dots.push({ x: Math.random()*W, y: Math.random()*H, r: Math.random()*1.9+.7, vx: (Math.random()-.5)*.16, vy: (Math.random()-.5)*.16, a: Math.random()*.20+.06 });
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for (var i = 0; i < dots.length; i++){ var d = dots[i];
+      ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, 6.2832); ctx.fillStyle = 'rgba(0,0,0,'+d.a+')'; ctx.fill();
+      if (!reduce){ d.x += d.vx; d.y += d.vy; if (d.x<0||d.x>W) d.vx*=-1; if (d.y<0||d.y>H) d.vy*=-1; }
+    }
+    if (!reduce) raf = requestAnimationFrame(draw);
+  }
+  size(); draw();
+  window.addEventListener('resize', function(){ cancelAnimationFrame(raf); size(); draw(); });
+})();
+// Scroll reveal
+(function(){
+  var els = document.querySelectorAll('section .wrap, footer .wrap');
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(e){ e.classList.add('in'); }); return;
+  }
+  els.forEach(function(e){ e.classList.add('reveal'); });
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){ if (x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } });
+  }, { threshold: .1 });
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
+</body>
+</html>
+
