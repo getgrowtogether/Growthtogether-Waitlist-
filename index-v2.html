@@ -681,7 +681,9 @@
 try { fetch('https://growtogether-waitlist.onrender.com/health').catch(function(){}); } catch(_){}
 // Already joined on this device? The join buttons say so — and lead to their link.
 try { var sv = JSON.parse(localStorage.getItem('gt_waitlist') || 'null');
-  if (sv && sv.code){ document.querySelectorAll('a[href="join.html"]').forEach(function(a){
+  if (sv && sv.code){ document.querySelectorAll('a.btn[href="join.html"]').forEach(function(a){
+    // BUTTONS ONLY — never content rows/cards that also link to join.html
+    // (the .trow spec rows were wiped by the old broad selector, 2026-11-17).
     if (a.closest('footer')) return; // the footer link keeps its normal text
     a.textContent = a.classList.contains('big') ? "You're in — your invite link" : 'My invite link';
   }); }
