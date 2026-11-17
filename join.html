@@ -50,6 +50,9 @@
   .step .hint{color:var(--grey);font-size:14px;line-height:1.55;margin-top:7px}
   .step input{width:100%;margin-top:20px;padding:14.5px 15px;border:1.5px solid var(--black);border-radius:12px;font-size:16px;font-family:inherit;background:rgba(255,255,255,.9)}
   .step input:focus{outline:none;box-shadow:0 0 0 4px rgba(0,0,0,.08)}
+  .step select{width:100%;margin-top:20px;padding:14.5px 40px 14.5px 15px;border:1.5px solid var(--black);border-radius:12px;font-size:16px;font-family:inherit;color:var(--ink);background-color:rgba(255,255,255,.9);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23000' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;appearance:none;-webkit-appearance:none;cursor:pointer}
+  .step select:focus{outline:none;box-shadow:0 0 0 4px rgba(0,0,0,.08)}
+  .refnote{display:none;margin-top:18px;background:#f4f4f4;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13.5px;line-height:1.55;color:var(--ink)}
   .err{display:none;color:#000;font-size:13px;margin-top:9px;font-weight:600}
   .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
   .chip{border:1.5px solid var(--black);background:rgba(255,255,255,.85);border-radius:999px;padding:10px 16px;font-size:14px;font-weight:550;cursor:pointer;font-family:inherit;transition:all .15s}
@@ -88,6 +91,19 @@
   .codechip b{font-size:15px;letter-spacing:.02em}
   .home{display:inline-block;margin-top:24px;color:var(--black);font-weight:600;font-size:14.5px;animation:fadeup .5s ease .7s both}
   .fine{margin-top:20px;font-size:12.5px;color:var(--mid);text-align:center;max-width:440px;line-height:1.6}
+
+  /* find-my-link recovery */
+  .recover{width:100%;max-width:520px;margin-top:24px;text-align:center}
+  .recover-toggle{background:none;border:none;font-family:inherit;font-size:14px;font-weight:600;color:var(--grey);cursor:pointer;text-decoration:underline;padding:6px}
+  .recover-toggle:hover{color:var(--black)}
+  .recover-body{margin-top:14px;background:rgba(255,255,255,.94);border:1px solid rgba(0,0,0,.09);border-radius:18px;box-shadow:0 16px 40px rgba(0,0,0,.07);padding:24px;text-align:left}
+  .recover-body .hint{color:var(--grey);font-size:14px;line-height:1.55}
+  .recover-body input{width:100%;margin-top:14px;padding:14.5px 15px;border:1.5px solid var(--black);border-radius:12px;font-size:16px;font-family:inherit;background:rgba(255,255,255,.9)}
+  .recover-body input:focus{outline:none;box-shadow:0 0 0 4px rgba(0,0,0,.08)}
+  .recover-body .row{margin-top:18px}
+  .recover-body .link{margin-top:12px;background:var(--black);color:#fff;border-radius:10px;padding:13px 14px;font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .recover-body .copybtn{border-color:rgba(0,0,0,.35);color:#000}
+  .recover-body .copybtn:hover{border-color:#000;background:rgba(0,0,0,.05)}
   @media (prefers-reduced-motion: reduce){.step.active,.donebox.active,.donebox *{animation:none!important}}
 </style>
 </head>
@@ -116,6 +132,7 @@
     <div class="step active" data-step="1">
       <p class="q">What is your email?</p>
       <p class="hint">Your beta invitation and your circle account will live here. Nothing else — no spam, ever.</p>
+      <p class="refnote" id="refNote">You arrived through a member's invite link. If you join, they move up the waitlist — it never changes your place or theirs inside the circle.</p>
       <input type="email" id="fEmail" placeholder="you@example.com" autocomplete="email">
       <p class="err" id="eEmail">Please enter a valid email address.</p>
       <div class="row"><span></span><button class="btn" data-next>Continue</button></div>
@@ -139,7 +156,30 @@
       <p class="err" id="eLoc">Please tell us your country.</p>
       <p class="q sub">Your language</p>
       <p class="hint">So members who read your language find your project.</p>
-      <input type="text" id="fLang" placeholder="Language (e.g. English, Hindi, Spanish…)" autocomplete="language">
+      <select id="fLang" autocomplete="language">
+        <option value="" disabled selected>Choose your language</option>
+        <option>English</option>
+        <option>Hindi</option>
+        <option>Spanish</option>
+        <option>Arabic</option>
+        <option>Bengali</option>
+        <option>Urdu</option>
+        <option>Portuguese</option>
+        <option>French</option>
+        <option>German</option>
+        <option>Indonesian</option>
+        <option>Russian</option>
+        <option>Tamil</option>
+        <option>Telugu</option>
+        <option>Marathi</option>
+        <option>Turkish</option>
+        <option>Japanese</option>
+        <option>Korean</option>
+        <option>Italian</option>
+        <option>Dutch</option>
+        <option>Polish</option>
+        <option>Other</option>
+      </select>
       <p class="err" id="eLang">Please tell us your language.</p>
       <div class="row"><button class="btn ghosty" data-back>Back</button><button class="btn" data-next>Continue</button></div>
     </div>
@@ -148,6 +188,7 @@
     <div class="step" data-step="4">
       <p class="q">What will you promote?</p>
       <p class="hint">Pick the closest one. Everything is welcome — that is the whole point of one circle for all.</p>
+      <p class="hint">One member lists one project during the beta, so the rotation stays fair — pick the project you most want discovered first.</p>
       <div class="chips" id="typeChips">
         <button type="button" class="chip">Website</button>
         <button type="button" class="chip">SaaS / web app</button>
@@ -188,8 +229,25 @@
         <div class="codechip">INVITE CODE <b id="wlCode"></b></div>
         <div class="link" id="wlLink"></div>
         <button class="copybtn" id="copyBtn" type="button">Copy link</button>
+        <p style="margin-top:14px">Save this link — it is your invitation and your place in line. Lost it? You can recover it any time with your email on this page.</p>
       </div>
       <a class="home" href="index.html">Back to home</a>
+    </div>
+  </div>
+
+  <div class="recover" id="recoverBox">
+    <button type="button" class="recover-toggle" id="recoverToggle">Already joined? Find your invite link</button>
+    <div class="recover-body" id="recoverBody" style="display:none">
+      <p class="hint">Enter the email you joined with and we will show your invite link again — handy on a new phone or a fresh browser.</p>
+      <input type="email" id="lkEmail" placeholder="you@example.com" autocomplete="email">
+      <p class="err" id="lkErr">Please enter a valid email address.</p>
+      <div class="row"><span></span><button class="btn" id="lkBtn" type="button">Find my link</button></div>
+      <div id="lkFound" style="display:none">
+        <p class="hint" id="lkMsg" style="margin-top:16px"></p>
+        <div class="link" id="lkLink"></div>
+        <button class="copybtn" id="lkCopy" type="button">Copy link</button>
+      </div>
+      <p class="hint" id="lkNotFound" style="display:none;margin-top:16px">No signup with that email was found. Check the address — or join the waitlist above and your link will be yours.</p>
     </div>
   </div>
 
@@ -298,6 +356,10 @@ if (BACKEND_URL && typeof fetch === 'function'){ try { fetch(BACKEND_URL + '/hea
       clearTimeout(timer); settle();
     }).catch(function(){ clearTimeout(timer); settle(); }); // offline fallback: local copy already saved
   }
+  // Referral disclosure: if this visitor arrived through a member's invite
+  // link, say so plainly on the first step — before they type anything.
+  try { var refNow = new URLSearchParams(location.search).get('ref') || '';
+    if (/^gt-[a-z0-9]+$/i.test(refNow)) document.getElementById('refNote').style.display = 'block'; } catch(_){}
   // Returning visitor on the same device: skip the wizard, show their link.
   try { var saved = JSON.parse(localStorage.getItem('gt_waitlist') || 'null');
     if (saved && saved.email && saved.code){ data = Object.assign({}, data, saved, { returning: true }); showDone(); } } catch(_){}
@@ -318,6 +380,48 @@ if (BACKEND_URL && typeof fetch === 'function'){ try { fetch(BACKEND_URL + '/hea
     if (e.key === 'Enter' && e.target.tagName === 'INPUT'){ e.preventDefault(); if (valid(cur)) (cur === TOTAL) ? finish() : show(cur + 1); }
   });
   paint();
+})();
+
+// Find-my-link recovery: the invite code is derived from the signup email,
+// so the backend can hand the link back to anyone who lost it (new phone,
+// cleared browser). Independent of the wizard above — it never touches it.
+(function(){
+  var toggle = document.getElementById('recoverToggle'), body = document.getElementById('recoverBody');
+  if (!toggle || !body) return;
+  toggle.addEventListener('click', function(){
+    var open = body.style.display !== 'none';
+    body.style.display = open ? 'none' : 'block';
+    if (!open) document.getElementById('lkEmail').focus();
+  });
+  var btn = document.getElementById('lkBtn');
+  function show(id, on){ document.getElementById(id).style.display = on ? 'block' : 'none'; }
+  function lookup(){
+    var v = document.getElementById('lkEmail').value.trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){ show('lkErr', true); return; }
+    show('lkErr', false); show('lkFound', false); show('lkNotFound', false);
+    btn.textContent = 'Looking…'; btn.disabled = true;
+    function done(){ btn.textContent = 'Find my link'; btn.disabled = false; }
+    if (!BACKEND_URL || typeof fetch !== 'function'){ show('lkNotFound', true); done(); return; }
+    fetch(BACKEND_URL + '/api/lookup?email=' + encodeURIComponent(v))
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        done();
+        if (res && res.found && res.code){
+          document.getElementById('lkMsg').textContent = 'Found you — you are #' + res.position + ' on the waitlist. Here is your invite link:';
+          document.getElementById('lkLink').textContent = location.origin + location.pathname.replace('join.html','') + '?ref=' + res.code;
+          show('lkFound', true);
+        } else show('lkNotFound', true);
+      })
+      .catch(function(){ done(); show('lkNotFound', true); });
+  }
+  btn.addEventListener('click', lookup);
+  document.getElementById('lkEmail').addEventListener('keydown', function(e){ if (e.key === 'Enter'){ e.preventDefault(); lookup(); } });
+  document.getElementById('lkCopy').addEventListener('click', function(){
+    var b = this, link = document.getElementById('lkLink').textContent;
+    function ok(){ b.textContent = 'Copied'; setTimeout(function(){ b.textContent = 'Copy link'; }, 2000); }
+    if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(link).then(ok).catch(function(){}); }
+    else { var t = document.createElement('textarea'); t.value = link; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); ok(); } catch(_){} document.body.removeChild(t); }
+  });
 })();
 </script>
 </body>

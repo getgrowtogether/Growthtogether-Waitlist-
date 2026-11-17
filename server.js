@@ -121,6 +121,26 @@ function mirror(rec) {
     body: JSON.stringify({ chat_id: TG_CHAT_ID, text })
   }).catch(() => {});
 }
+// ---------- lookup rate limiting ----------
+// The /api/lookup endpoint lets a member recover their invite code from
+// their email alone, so it is the one unauthenticated read that can probe
+// the list. Keep it cheap and bounded: a simple per-IP counter in the same
+// spirit as the rest of this file (stdlib only, no dependencies). The map
+// is pruned opportunistically so it cannot grow without bound.
+const LOOKUP_LIMIT = 30;                 // lookups …
+const LOOKUP_WINDOW_MS = 10 * 60 * 1000;  // … per 10 minutes, per IP
+const lookupHits = new Map();
+function lookupAllowed(ip) {
+  const now = Date.now();
+  if (lookupHits.size > 1000) {
+    for (const [k, v] of lookupHits) { if (now - v.start > LOOKUP_WINDOW_MS) lookupHits.delete(k); }
+  }
+  let e = lookupHits.get(ip);
+  if (!e || now - e.start > LOOKUP_WINDOW_MS) { e = { start: now, n: 0 }; lookupHits.set(ip, e); }
+  e.n += 1;
+  return e.n <= LOOKUP_LIMIT;
+}
+
 function send(res, status, obj) {
   const body = JSON.stringify(obj);
   res.writeHead(status, {
@@ -150,6 +170,19 @@ const server = http.createServer((req, res) => {
       res.end(buf); return;
     }
     if (req.method === 'GET' && u.pathname === '/api/count') { send(res, 200, { ok: true, count: records.length }); return; }
+
+    // Invite-link recovery: a member who lost their link (new phone, cleared
+    // browser) can get it back with just their signup email. Returns ONLY
+    // found/code/position — never the name, location or any other field.
+    if (req.method === 'GET' && u.pathname === '/api/lookup') {
+      const ip = String(req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').split(',')[0].trim();
+      if (!lookupAllowed(ip)) { send(res, 429, { ok: false, error: 'rate_limited' }); return; }
+      const email = (u.searchParams.get('email') || '').trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { send(res, 400, { ok: false, error: 'bad_email' }); return; }
+      const rec = records.find(r => r.email === email);
+      if (!rec) { send(res, 200, { ok: true, found: false }); return; }
+      send(res, 200, { ok: true, found: true, code: rec.code, position: rec.position }); return;
+    }
 
     if (req.method === 'GET' && u.pathname === '/api/export') {
       if (!ADMIN_TOKEN || u.searchParams.get('token') !== ADMIN_TOKEN) { send(res, 404, { ok: false }); return; }
