@@ -183,6 +183,7 @@ const server = http.createServer((req, res) => {
             email,
             name: String(d.name || '').trim().slice(0, 80),
             location: String(d.location || '').trim().slice(0, 80),
+            language: String(d.language || '').trim().slice(0, 80),
             type: String(d.type || '').trim().slice(0, 60),
             url: String(d.url || '').trim().slice(0, 300),
             ref: String(d.ref || '').trim().slice(0, 40),
