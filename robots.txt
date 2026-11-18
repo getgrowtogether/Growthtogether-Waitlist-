@@ -21,4 +21,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-# Sitemap line will be added with the real domain the day hosting goes live.
+Sitemap: https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/sitemap.xml
