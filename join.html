@@ -104,7 +104,27 @@
   .recover-body .link{margin-top:12px;background:var(--black);color:#fff;border-radius:10px;padding:13px 14px;font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .recover-body .copybtn{border-color:rgba(0,0,0,.35);color:#000}
   .recover-body .copybtn:hover{border-color:#000;background:rgba(0,0,0,.05)}
-  @media (prefers-reduced-motion: reduce){.step.active,.donebox.active,.donebox *{animation:none!important}}
+  @media (prefers-reduced-motion: reduce){.step.active,.donebox.active,.donebox *,.loadbox.active,.loadbox *{animation:none!important}}
+</style>
+<style>
+  /* W1 staged fixes (2026-11-17) — see sevenday/waitlist-audit/WEAKNESSES.md */
+  .head p.headbenefit{color:var(--ink);font-size:14.5px} /* W1 FIX 5 (W-6) */
+  .steplabel{text-align:center;font-size:12px;color:var(--mid);letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin:0 0 16px} /* W1 FIX 2 (W-5) */
+  .fine a{color:inherit;text-decoration:underline} /* W1 FIX 3 (W-3) */
+  /* W4: footer with the GitHub icon — same link + mark as every other page. */
+  .joinfoot{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;max-width:1160px;margin:0 auto;padding:0 22px 34px;font-size:14px;color:var(--grey)}
+  .joinfoot a{display:inline-flex;align-items:center;gap:7px;color:#000;font-weight:600;text-decoration:none}
+  /* LOADING (founder order 2026-11-18): the growing-dots ring from the brand mark,
+     pulsing in a travelling wave — shown on the final submit while the first
+     confirmation request is in flight, so a sleeping server never looks broken. */
+  .loadbox{display:none;text-align:center;padding:14px 0 6px}
+  .loadbox.active{display:block;animation:rise .3s ease}
+  .loadring{position:relative;width:118px;height:118px;margin:6px auto 16px}
+  .loadring i{position:absolute;left:50%;top:50%;width:var(--s);height:var(--s);margin:calc(var(--s)/-2) 0 0 calc(var(--s)/-2);border-radius:50%;background:var(--black);transform:rotate(var(--a)) translateY(-44px);animation:loadpulse 1.2s ease-in-out var(--d) infinite}
+  .loadring i.centre{transform:none;animation:loadpulse 1.2s ease-in-out .55s infinite}
+  @keyframes loadpulse{0%,100%{scale:.4;opacity:.3}50%{scale:1.12;opacity:1}}
+  .loadbox .loadtitle{font-size:23px;font-weight:700;letter-spacing:-.02em}
+  .loadbox .loadsub{color:var(--grey);font-size:14.5px;line-height:1.55;margin-top:8px;min-height:22px}
 </style>
 </head>
 <body>
@@ -122,10 +142,19 @@
 <main>
   <div class="head">
     <h1>Join the circle</h1>
-    <p>Five quick questions — one at a time. Less than a minute, and your invite link is yours.</p>
+    <!-- W1 FIX 4 (W-4): the wizard has five STEPS but asks six things (country and
+         language share step 3). "Five quick questions" was a promise the form itself
+         disproved — corrected to steps, which is what the progress dots count. -->
+    <p>Five quick steps — one at a time. Less than a minute, and your invite link is yours.</p>
+    <!-- W1 FIX 5 (W-6): direct arrivals (guide CTAs, shared links, the README) never
+         saw the landing's value story. One benefit line + the published milestone,
+         both existing approved copy — no new claims. -->
+    <p class="headbenefit">Free promotion for your project — members discover yours while you discover theirs. The first wave opens when the first 50 members are on the waitlist.</p>
   </div>
 
   <div class="progress" id="progress" aria-hidden="true"></div>
+  <!-- W1 FIX 2 (W-5): the dots alone never told anyone where they were. -->
+  <p class="steplabel" id="stepLabel" aria-live="polite">Step 1 of 5</p>
 
   <div class="card" id="card">
     <!-- STEP 1 · email -->
@@ -215,6 +244,18 @@
       <p class="skip">No link yet? <button type="button" id="skipUrl">Skip this step</button></p>
     </div>
 
+    <!-- LOADING (founder order 2026-11-18): shown the moment Finish (or Skip) is
+         tapped, while the first confirmation request is in flight. The dots are
+         the brand's growing ring — sizes grow around the circle, pulsing in a
+         travelling wave. If the wait runs long, the sub-line says the server is
+         waking; if the request is still unanswered after 10 s, the success
+         screen takes over with the honest still-confirming note (see finish()). -->
+    <div class="loadbox" id="loadBox" role="status" aria-live="polite">
+      <div class="loadring" aria-hidden="true"><i style="--a:0deg;--s:4.5px;--d:0s"></i><i style="--a:40deg;--s:5.1px;--d:.12s"></i><i style="--a:80deg;--s:5.7px;--d:.24s"></i><i style="--a:120deg;--s:6.3px;--d:.36s"></i><i style="--a:160deg;--s:6.9px;--d:.48s"></i><i style="--a:200deg;--s:7.5px;--d:.6s"></i><i style="--a:240deg;--s:8.1px;--d:.72s"></i><i style="--a:280deg;--s:8.7px;--d:.84s"></i><i style="--a:320deg;--s:9.3px;--d:.96s"></i><i class="centre" style="--s:10px"></i></div>
+      <p class="loadtitle">Joining the circle&hellip;</p>
+      <p class="loadsub" id="loadSub">Saving your place — one moment.</p>
+    </div>
+
     <!-- SUCCESS -->
     <div class="donebox" id="doneBox">
       <div class="popwrap">
@@ -231,6 +272,9 @@
         <button class="copybtn" id="copyBtn" type="button">Copy link</button>
         <p style="margin-top:14px">Save this link — it is your invitation and your place in line. Lost it? You can recover it any time with your email on this page.</p>
       </div>
+      <!-- W1 FIX 6 (W-1): shown only if the server never confirms the signup —
+           the honest version of "saved", instead of silence. -->
+      <p id="saveNote" style="display:none;margin-top:14px;font-size:13px;color:var(--mid);line-height:1.6">Still confirming your place with the server — it is saved on this device, and this page will finish confirming on its own. Your invite link above is already yours.</p>
       <a class="home" href="index.html">Back to home</a>
     </div>
   </div>
@@ -251,8 +295,16 @@
     </div>
   </div>
 
-  <p class="fine">The whole circle is free — no plans, no pricing. Your details are used only for your waitlist place and your beta invitation — never sold, never shared.</p>
+  <!-- W1 FIX 3 (W-3): this page collects the data, so this page links the policies —
+       until now join.html had no privacy or terms link anywhere on it. -->
+  <p class="fine">The whole circle is free — no plans, no pricing. Your details are used only for your waitlist place and your beta invitation — never sold, never shared. <a href="privacy.html">Privacy policy</a> · <a href="terms.html">Terms of use</a>.</p>
 </main>
+
+<!-- W4: join.html had no footer at all, so no GitHub icon — the last page missing it. -->
+<footer class="joinfoot">
+  <span>Grow Together. Promote Together.</span>
+  <a href="https://github.com/oumar9018-cmd/Growthtogether-Waitlist-" target="_blank" rel="noopener" aria-label="GrowTogether on GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="#000" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a>
+</footer>
 
 <script>
 // Animated black dot field on bright white — light canvas, respects reduced motion.
@@ -304,6 +356,7 @@ if (BACKEND_URL && typeof fetch === 'function'){ try { fetch(BACKEND_URL + '/hea
   function show(n){
     document.querySelectorAll('.step').forEach(function(st){ st.classList.toggle('active', +st.dataset.step === n); });
     cur = n; paint();
+    var sl = document.getElementById('stepLabel'); if (sl) sl.textContent = 'Step ' + n + ' of 5'; // W1 FIX 2 (W-5)
     var inp = document.querySelector('.step.active input'); if (inp) inp.focus();
   }
   function err(id, on){ document.getElementById(id).style.display = on ? 'block' : 'none'; return !on; }
@@ -321,6 +374,7 @@ if (BACKEND_URL && typeof fetch === 'function'){ try { fetch(BACKEND_URL + '/hea
     else if (data.name) document.getElementById('doneSub').textContent = "You're on the waitlist, " + data.name.split(' ')[0] + '. Welcome to the circle — when the beta opens, your invitation lands in your inbox, and members who bring genuine builders through their link enter first.';
     document.querySelectorAll('.step').forEach(function(st){ st.classList.remove('active'); });
     cur = TOTAL + 1; paint();
+    var sl2 = document.getElementById('stepLabel'); if (sl2) sl2.textContent = 'You are in'; // W1 FIX 2 (W-5)
     document.getElementById('doneBox').classList.add('active');
   }
   document.getElementById('copyBtn').addEventListener('click', function(){
@@ -335,6 +389,7 @@ if (BACKEND_URL && typeof fetch === 'function'){ try { fetch(BACKEND_URL + '/hea
     try { var sv = JSON.parse(localStorage.getItem('gt_waitlist') || 'null');
       if (sv && sv.email && sv.email !== document.getElementById('fEmail').value.trim().toLowerCase()){
         data = Object.assign({}, sv, { returning: true }); showDone(); return; } } catch(_){}
+    if (finish._ran) return; finish._ran = true; // LOADING: a double tap / repeated Enter must not submit twice
     data.email = document.getElementById('fEmail').value.trim().toLowerCase();
     data.name = document.getElementById('fName').value.trim();
     data.location = document.getElementById('fLoc').value.trim();
@@ -344,22 +399,99 @@ if (BACKEND_URL && typeof fetch === 'function'){ try { fetch(BACKEND_URL + '/hea
     var h = 0; for (var i = 0; i < data.email.length; i++){ h = ((h << 5) - h + data.email.charCodeAt(i)) | 0; }
     data.code = 'gt-' + Math.abs(h).toString(36); // same hash as the backend — identical code either way
     try { localStorage.setItem('gt_waitlist', JSON.stringify(Object.assign({}, data, { at: Date.now() }))); } catch(_){}
+    // W1 FIX 6 (W-1) + LOADING (founder order 2026-11-18): the original code
+    // waited up to 8 s with NO visible change after the Finish tap, then showed
+    // success whether or not the POST had landed — and if the tab closed
+    // mid-flight, the signup existed only on this device while the success
+    // screen promised an inbox invitation. The W1 rework made confirmation
+    // un-losable (deterministic code, backoff retries, gt_pending persisted and
+    // flushed on the next visit to either page, sendBeacon on page-hide). The
+    // founder's loading order now wraps that same machinery in a visible state:
+    // the growing-dots loading screen shows the moment Finish is tapped; a fast
+    // answer goes straight to success; at 6 s the sub-line says the server is
+    // waking; if the first request is still unanswered at 10 s, the success
+    // screen takes over WITH the honest still-confirming note while the retries
+    // keep running underneath. The backend dedupes by email, so retries are safe.
     if (!BACKEND_URL || typeof fetch !== 'function'){ showDone(); return; }
-    var done = false;
-    function settle(){ if (!done){ done = true; showDone(); } }
-    var timer = setTimeout(settle, 8000); // never leave the visitor waiting on a slow backend
-    fetch(BACKEND_URL + '/api/waitlist', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    }).then(function(r){ return r.json(); }).then(function(res){
-      if (res && res.code) data.code = res.code; // backend confirms (or dedupes to) the same code
-      clearTimeout(timer); settle();
-    }).catch(function(){ clearTimeout(timer); settle(); }); // offline fallback: local copy already saved
+    var confirmed = false, doneShown = false, loadStart = Date.now();
+    try { localStorage.setItem('gt_pending', JSON.stringify(data)); } catch(_){}
+    showLoading();
+    var wakeTimer = setTimeout(function(){
+      var s = document.getElementById('loadSub');
+      if (s && !doneShown) s.textContent = 'Waking the server — the first visit can take a few seconds.';
+    }, 6000);
+    var slowTimer = setTimeout(function(){ showSuccess(true); }, 10000);
+    function showLoading(){
+      document.querySelectorAll('.step').forEach(function(st){ st.classList.remove('active'); });
+      document.getElementById('loadBox').classList.add('active');
+      cur = TOTAL + 1; paint();
+      var sl = document.getElementById('stepLabel'); if (sl) sl.textContent = 'Joining the circle';
+    }
+    function showSuccess(slow){
+      if (doneShown) return; doneShown = true;
+      clearTimeout(wakeTimer); clearTimeout(slowTimer);
+      document.getElementById('loadBox').classList.remove('active');
+      showDone();
+      if (slow && !confirmed){ var n = document.getElementById('saveNote'); if (n) n.style.display = 'block'; }
+    }
+    function markConfirmed(code){
+      if (confirmed) return; confirmed = true;
+      function applyCode(){
+        if (code && code !== data.code){
+          data.code = code;
+          document.getElementById('wlCode').textContent = code;
+          document.getElementById('wlLink').textContent = location.origin + location.pathname.replace('join.html','') + '?ref=' + code;
+          try { var sv2 = JSON.parse(localStorage.getItem('gt_waitlist') || 'null');
+            if (sv2){ sv2.code = code; localStorage.setItem('gt_waitlist', JSON.stringify(sv2)); } } catch(_){}
+        }
+        try { localStorage.removeItem('gt_pending'); } catch(_){}
+        var n = document.getElementById('saveNote'); if (n) n.style.display = 'none';
+      }
+      if (!doneShown){
+        // Keep the loading state up for a beat (600 ms) so it never just flashes.
+        var wait = Math.max(0, 600 - (Date.now() - loadStart));
+        setTimeout(function(){ showSuccess(false); applyCode(); }, wait);
+      } else applyCode();
+    }
+    function attempt(i){
+      fetch(BACKEND_URL + '/api/waitlist', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function(r){ return r.json(); }).then(function(res){
+        markConfirmed(res && res.code); // backend confirms (or dedupes to) the same code
+      }).catch(function(){
+        if (i < 3) setTimeout(function(){ attempt(i + 1); }, [5000, 15000, 30000][i]);
+        else { var n = document.getElementById('saveNote'); if (n) n.style.display = 'block'; }
+      });
+    }
+    attempt(0);
+    window.addEventListener('pagehide', function(){
+      if (!confirmed && navigator.sendBeacon){
+        try { navigator.sendBeacon(BACKEND_URL + '/api/waitlist', new Blob([JSON.stringify(data)], { type: 'application/json' })); } catch(_){}
+      }
+    });
   }
   // Referral disclosure: if this visitor arrived through a member's invite
   // link, say so plainly on the first step — before they type anything.
   try { var refNow = new URLSearchParams(location.search).get('ref') || '';
     if (/^gt-[a-z0-9]+$/i.test(refNow)) document.getElementById('refNote').style.display = 'block'; } catch(_){}
+  // W1 FIX 6b (W-1): flush a still-unconfirmed signup from an earlier visit —
+  // the server dedupes by email, so re-sending the same payload is safe.
+  try { var pd2 = JSON.parse(localStorage.getItem('gt_pending') || 'null');
+    if (pd2 && pd2.email && BACKEND_URL && typeof fetch === 'function'){
+      fetch(BACKEND_URL + '/api/waitlist', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(pd2) })
+        .then(function(r){ if (r.ok) localStorage.removeItem('gt_pending'); }).catch(function(){});
+    } } catch(_){}
+  // W1 FIX 1 (W-2): an email typed into the landing page's hero form arrives
+  // here as a draft — pre-fill step 1 and open the wizard at step 2, so the
+  // visitor never types the same address twice. (A saved signup, checked
+  // below, still wins over a draft.)
+  try { var draft = localStorage.getItem('gt_draft_email');
+    if (draft && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(draft)){
+      document.getElementById('fEmail').value = draft;
+      localStorage.removeItem('gt_draft_email');
+      show(2);
+    } } catch(_){}
   // Returning visitor on the same device: skip the wizard, show their link.
   try { var saved = JSON.parse(localStorage.getItem('gt_waitlist') || 'null');
     if (saved && saved.email && saved.code){ data = Object.assign({}, data, saved, { returning: true }); showDone(); } } catch(_){}
