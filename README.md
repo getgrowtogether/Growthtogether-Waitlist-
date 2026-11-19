@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/">
+  <a href="https://growtogether.ccwu.cc/">
     <img src="https://growtogether-waitlist.onrender.com/og-image.png" alt="GrowTogether — free promotion for everything you create" width="100%">
   </a>
 </p>
@@ -15,19 +15,26 @@
   <img src="https://img.shields.io/badge/No_plans-No_pricing-black?style=flat-square" alt="No plans, no pricing">
   <img src="https://img.shields.io/badge/Waitlist-Open-black?style=flat-square" alt="Waitlist open">
   <img src="https://img.shields.io/badge/Projects-All_types_welcome-black?style=flat-square" alt="All project types welcome">
+  <img src="https://img.shields.io/badge/Guides-14_free_guides-black?style=flat-square" alt="14 free guides">
 </p>
 
-<p align="center"><strong><a href="https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/join.html">Join the waitlist →</a></strong></p>
+<p align="center"><strong><a href="https://growtogether.ccwu.cc/join.html">Join the waitlist →</a></strong></p>
+
+<p align="center">
+  <a href="https://growtogether.ccwu.cc/how-ranking-works.html">How ranking works</a> ·
+  <a href="https://growtogether.ccwu.cc/free-website-promotion.html">Start with the free promotion hub</a> ·
+  <a href="https://growtogether.ccwu.cc/about.html">About the circle</a>
+</p>
 
 ---
 
 ## What is GrowTogether?
 
-GrowTogether is a **mutual-discovery circle**. You bring a project; the circle shows it to other members; you discover theirs in return.
+GrowTogether is a **mutual-discovery circle** — a free way to promote your website, app, SaaS, Telegram bot or channel. You bring a project; the circle shows it to other members; you discover theirs in return.
 
-Discovery runs in a **fair rotation**, so every project in the circle gets its turn to be seen — not just the loudest ones.
+Discovery runs in a **fair rotation**, so every project in the circle gets its turn to be seen — not just the loudest ones. A credit is earned only for discovering a project *inside* the circle — never for an install, a rating, a follow, a subscribe or an ad click.
 
-GrowTogether is currently in its **waitlist phase**. Next comes an invite-only beta, then the public launch. Every member gets a **personal invite link** from day one — the builders you invite help you enter the beta sooner.
+GrowTogether is currently in its **waitlist phase**. Next comes an invite-only beta, then the public launch. Every member gets a **personal invite link** from day one: invites move you up the waitlist — never up the rotation.
 
 ## How the circle works
 
@@ -41,60 +48,61 @@ Websites · Apps · SaaS · Telegram bots & channels · YouTube channels · Podc
 
 If people can visit it, join it, or follow it, it belongs in the circle.
 
-## Free promotion guides
+## Free promotion guides — how to promote your project for free
 
-Guides written for builders promoting on a zero budget — the same routes the circle itself is built on.
+Guides written for builders promoting on a zero budget — the same routes the circle itself is built on. Every count below is the count on the live page.
 
 | Guide | What it covers |
 | --- | --- |
-| [Free Website Promotion](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/free-website-promotion.html) | The hub: every free promotion route in one place |
-| [38 Free Advertising Sites](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/free-advertising-sites.html) | A directory of free places to promote your project |
-| [Where to Promote Your Startup](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/where-to-promote-your-startup.html) | Where to submit a startup for its first users |
-| [Cross-Promotion](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/cross-promotion.html) | Swap audiences with projects like yours |
-| [Get Your First 100 Users](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/get-first-100-users.html) | From zero to your first 100 users, without ads |
-| [Promote a Telegram Channel Free](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/promote-telegram-channel-free.html) | Grow a Telegram channel or bot without spending |
-| [Promote a YouTube Channel Without Paying](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/promote-youtube-channel-free.html) | Get viewers with titles, Shorts, collabs and cross-promotion |
-| [Promote an App Free](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/promote-app-free.html) | Get your app its first downloads, free |
-| [Promote a Podcast Free](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/promote-podcast-free.html) | Find listeners on a zero budget |
-| [Promote a Discord Server Free](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/promote-discord-server-free.html) | Bring real members to a Discord server |
-| [Promote an Instagram Page Free](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/promote-instagram-page-free.html) | Grow an Instagram page without ads |
-| [Promote a Facebook Page Free](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/promote-facebook-page-free.html) | Promote a Facebook page for free |
-| [Promote a Newsletter Free](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/promote-newsletter-free.html) | Grow a newsletter with swaps and directories |
-| [Promote a TikTok Account Free](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/promote-tiktok-account-free.html) | Promote a TikTok account without paying |
+| [How to Promote Your Website for Free](https://growtogether.ccwu.cc/free-website-promotion.html) | The hub: all 6 routes to free website promotion in one place |
+| [Free Advertising Sites — 36 Free Places, Checked](https://growtogether.ccwu.cc/free-advertising-sites.html) | 37 places checked one by one; 36 of them are free to use |
+| [Where to Promote Your Startup — 25 Places](https://growtogether.ccwu.cc/where-to-promote-your-startup.html) | 25 places to submit a startup for its first users |
+| [Cross-Promotion Platforms, Explained](https://growtogether.ccwu.cc/cross-promotion.html) | How projects promote each other — swaps, circles, and a pitch template you can copy |
+| [Get Your First 100 Users](https://growtogether.ccwu.cc/get-first-100-users.html) | First messages you can copy, a week-by-week checklist, and what to do when it stalls |
+| [Promote a Telegram Channel for Free](https://growtogether.ccwu.cc/promote-telegram-channel-free.html) | 8 routes to real members, plus a directory of 10 places where channels get found |
+| [Promote a YouTube Channel Without Paying](https://growtogether.ccwu.cc/promote-youtube-channel-free.html) | Get viewers with titles, Shorts, collabs and cross-promotion |
+| [Promote an App for Free](https://growtogether.ccwu.cc/promote-app-free.html) | 9 places to list an app and get its first downloads, free |
+| [Promote a Podcast for Free](https://growtogether.ccwu.cc/promote-podcast-free.html) | 11 free places to list a podcast — and how podcast discovery actually works |
+| [Promote a Discord Server for Free](https://growtogether.ccwu.cc/promote-discord-server-free.html) | 11 free places to list a server and bring in real members |
+| [Promote an Instagram Page for Free](https://growtogether.ccwu.cc/promote-instagram-page-free.html) | 11 free places and routes to your first 100 followers: a 14-day plan |
+| [Promote a Facebook Page for Free](https://growtogether.ccwu.cc/promote-facebook-page-free.html) | 11 free places and routes to a Page's first 100 followers |
+| [Promote a Newsletter for Free](https://growtogether.ccwu.cc/promote-newsletter-free.html) | Start with swaps: directories, cross-promotions and communities that grow newsletters |
+| [Promote a TikTok Account for Free](https://growtogether.ccwu.cc/promote-tiktok-account-free.html) | Promote a TikTok account without paying |
 
-More about the circle: [About](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/about.html) · [How ranking works](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/how-ranking-works.html) · [Privacy](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/privacy.html) · [Terms](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/terms.html)
+More about the circle: [About](https://growtogether.ccwu.cc/about.html) · [How ranking works](https://growtogether.ccwu.cc/how-ranking-works.html) · [Privacy](https://growtogether.ccwu.cc/privacy.html) · [Terms](https://growtogether.ccwu.cc/terms.html)
 
 ## Join the circle
 
-### [Join the waitlist →](https://oumar9018-cmd.github.io/Growthtogether-Waitlist-/join.html)
+### [Join the waitlist →](https://growtogether.ccwu.cc/join.html)
 
 Every member gets a personal invite link. Bring the builders you know — the circle grows when its members do.
 
 ## FAQ
 
 **Is GrowTogether free?**
-Yes — completely. There are no plans and no pricing; the circle is free for every member.
+Yes — completely. There are no plans and no pricing; the circle is free for every member, and it runs on free infrastructure and its founder's own time. The answer will never be data sales or ads.
 
-**When does it launch?**
-In stages: waitlist first, then an invite-only beta with a first group of members, then the public launch. Joining the waitlist is how you get into the beta.
+**When does it open?**
+In stages: waitlist first, then an invite-only beta, then the public launch. The first wave opens when the first 50 members are on the waitlist. Joining the waitlist is how you get into the beta.
 
 **What projects can join?**
-Any digital project — websites, apps, SaaS, Telegram bots and channels, YouTube channels, podcasts, newsletters, communities and more.
+Any digital project — websites, apps, SaaS, Telegram bots and channels, YouTube channels, podcasts, newsletters, communities and more. One member lists one project during the beta, so the rotation stays fair.
 
 **How is this different from traffic exchanges?**
-Traffic exchanges send automated or paid visits that nobody pays attention to. GrowTogether is discovery by real members: people browse the circle to find projects, and yours is shown to them in a fair rotation. No bots, no fake traffic, no bought visits.
+Traffic exchanges send automated or paid visits that nobody pays attention to. GrowTogether is discovery by real members: people browse the circle to find projects, and yours is shown to them in a fair rotation. No bots, no fake traffic, no bought visits — and credits are earned only for discovery inside the circle, never for installs, ratings, follows or ad clicks on any platform.
 
 ## Under the hood
 
 This repo holds both halves of GrowTogether:
 
-- **The site** — static pages at the repo root, served by GitHub Pages (landing, join page, guides).
+- **The site** — static pages at the repo root, served by GitHub Pages (landing, join page, guides). Plain HTML: no build step, no JavaScript framework — every word is in the page source, so search engines and AI crawlers read it exactly as visitors do.
 - **The waitlist service** — `server.js`, a zero-dependency Node service (Node 18+, no build step, no dependencies) hosted on Render.
 
 **Endpoints**
 
-- `POST /api/waitlist` — save a signup `{email, name, location, type, url, ref}`. Duplicate emails return the original invite code and position. A valid `ref` (someone's invite code) increments that member's invite count.
+- `POST /api/waitlist` — save a signup `{email, name, location, language, type, url, ref}`. Duplicate emails return the original invite code and position. A valid `ref` (someone's invite code) increments that member's invite count.
 - `GET /api/count` — public signup count.
+- `GET /api/lookup?email=...` — recover your position and invite code from your email.
 - `GET /api/export?token=<ADMIN_TOKEN>` — full list (admin only).
 - `DELETE /api/record?token=<ADMIN_TOKEN>&email=...` — remove a record (admin only).
 - `GET /health` — service check.
